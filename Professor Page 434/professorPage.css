@@ -1,20 +1,46 @@
 
-
+/*All Fieldset properties*/
 fieldset{
     border-radius: 15px;
 }
+
+/* "Classroom" & "Todays Date" fieldset 
+    Location:  top left */
 .classroom {
-    display: inline-block;
+    position: absolute;
+    top: 2%;
     box-sizing: border-box;
     float: left;
-
 }
 
+/*  Today's Office hour. This section also includes the "office hour button" implemenetation
+    Location: Near top left, underneath classroom and date display*/
 .office {
     position: absolute;
-    top: 10%;
-    right: 1%;
+    top: 17%;
+    left: 1%;
     box-sizing: border-box;
+}
+
+
+
+/*  Status with countdown timer. 
+    Location: top right */
+#status {
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    color: white;
+    padding: 9px;
+    background-color: white;
+    border-radius: 15px;
+  }
+
+
+/*  Professors Announcements. This includes alot of containers. Similar to Andys Implementation
+    Location: Bottom Left*/
+.mySlides {
+    display: none;
 }
 
 .slideshow-container {
@@ -22,17 +48,17 @@ fieldset{
     position: absolute;
     bottom: 4%;
   }
-  .mySlides {
-    display: none;
-  }
-
-
+  
+/*  The next arrow button on the slideshow
+    Location: Middle Left of Announcements*/
 .next {
     position: absolute;
     top: 50%;
     left: 93%;
   }
 
+/*  The previous arrow button on the slideshow
+    Location: Middle right of Announcements*/
   .prev{
     position: absolute;
     top: 50%;
@@ -45,7 +71,9 @@ fieldset{
     animation-name: fade;
     animation-duration: 1.5s;
   }
-  
+
+/*  These are the dots for the slideshow
+    Location: underneath Announcements */
   .dots{
     position: absolute;
     left: 15%;
@@ -53,10 +81,12 @@ fieldset{
 
   }
 
+  /*Fading animation*/
   .prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
   }
 
+/*  Previous and Next buttons basic properties*/
 .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -71,21 +101,114 @@ fieldset{
     border-radius: 0 3px 3px 0;
     user-select: none;
   }
+  /* Basic implementation of the dots */
   .dot {
     cursor: pointer;
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbb;
+    background-color:  rgb(68, 137, 158);;
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
   }
+  /*The count for the slides -------> probably do not need, not showing on my page.*/
   .numbertext {
     color: #f2f2f2;
     font-size: 12px;
     padding: 8px 12px;
     position: absolute;
     top: 0;
+  }
+
+  
+  .queue{  
+    position: absolute;
+    top: 18%;
+    right: 1%;
+  }
+
+
+  #button {
+    border-radius: 15px;
+    background-color:#008CBA;; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  #button {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+  }
+  
+  .active,#button:hover {
+    background-color: #008CBA;
+    color: white;
+  }
+    
+  .content {
+    position: absolute;
+    left: 25%;
+    bottom: 66%;
+    width: 37%;
+    text-align: center;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    border-radius: 15px;
+  }
+
+  .comic{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    border-radius: 15%;
+  }
+
+  img{
+    border-radius: 10%;
+  }
+
+  ul {
+      list-style-type: none;
+ }
+
+ .weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: rgb(68, 137, 158);
+  }
+  
+  .weekdays li {
+    display: inline-block;
+    width: 19%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+  }
+  .days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+  }
+  
+  .days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 19%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+    
   }
   

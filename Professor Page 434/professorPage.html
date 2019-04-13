@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <script src="professorPage.js"></script>
+
     <link rel="stylesheet" href="professorPage.css">
     <title>Professor Golub's Office</title>
 </head>
@@ -20,7 +20,7 @@
         </legend>
         <marquee behavior="scroll" bgcolor="white" loop="-2" width="100%">
             <i>
-                <font color="red" size="5">
+                <font color="black" size="5">
                     <strong>Today's date is :
                         <span id="time"></span>
                     </strong>
@@ -28,6 +28,14 @@
             </i>
         </marquee>
     </fieldset>
+
+    <div>
+        <span id="status">
+            <font size="5.4">Status:
+                <span id="statusValue"></span>
+            </font>
+        </span>
+    </div>
 
     <br>
     <br>
@@ -73,51 +81,59 @@
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
         </div>
+
+        <div class=comic>
+
+            <img src="comic.png" width="520" height="350">
+        </div>
     </div>
-
-
-
 
     <fieldset class="office">
         <legend><strong>
-                <font size="5">Professor Golub Office Hours</font>
+                <font size="5">Todays Office Hours</font>
             </strong></legend>
-        <fieldset>
-            <legend>
-                Monday
-            </legend>
-            4:00pm - 6:00pm
-        </fieldset>
 
-        <fieldset>
-            <legend>
-                <font color="red">Tuesday</font>
-            </legend>
-            4:00pm - 5:00pm
-        </fieldset>
-
-        <fieldset>
-            <legend>
-                Wednesday
-            </legend>
-            N/A
-        </fieldset>
-
-        <fieldset>
-            <legend>
-                Thursday
-            </legend>
-            5:00pm - 6:30pm
-        </fieldset>
-
-
-        <fieldset>
-            <legend>
-                Friday
-            </legend>
-            3:00pm - 6:00pm
-        </fieldset>
+        <button class="collapsible" id="button">4:00pm - 6:00pm</button>
     </fieldset>
+
+    
+    <div class="content" id="weekbutton">
+    <ul class="weekdays">
+            <li> <font size="5">Mo</font></li>
+            <li> <font size="5">Tu</font></li>
+            <li> <font size="5">We</font></li>
+            <li> <font size="5">Th</font></li>
+            <li> <font size="5">Fr</font></li>
+    </ul>
+
+    <ul class="days"> 
+            <li><font size="3">4:00pm - 6:00pm</font></li>
+            <li><font size="3">4:00pm - 6:00pm</font></li>
+            <li><font size="3">4:00pm - 6:00pm</font></li>
+            <li><font size="3">4:00pm - 6:00pm</font></li>
+            <li><font size="3">4:00pm - 6:00pm</font></li>
+    </ul>
+    </div>
+
+
+    <fieldset class="queue">
+        <legend><strong>
+                <font size="5">Queue</font>
+            </strong></legend>
+        <button id="button">ADD TO QUEUE</button>'
+        <label>
+            <font size="5"><strong>Queue: </strong></font>
+        </label>
+        <label id="queueNumber">
+            <font size="6">#14</font>
+        </label>
+    </fieldset>
+
+
+
+
+
 </body>
+<script src="professorPage.js"></script>
 
 </html>
