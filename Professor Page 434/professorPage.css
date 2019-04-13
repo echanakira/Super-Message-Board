@@ -1,214 +1,261 @@
-
 /*All Fieldset properties*/
-fieldset{
-    border-radius: 15px;
+
+fieldset {
+  border-radius: 15px;
 }
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
 
 /* "Classroom" & "Todays Date" fieldset 
     Location:  top left */
+
 .classroom {
-    position: absolute;
-    top: 2%;
-    box-sizing: border-box;
-    float: left;
+  position: absolute;
+  top: 2%;
+  box-sizing: border-box;
+  float: left;
 }
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*  Today's Office hour. This section also includes the "office hour button" implemenetation
     Location: Near top left, underneath classroom and date display*/
+
 .office {
-    position: absolute;
-    top: 17%;
-    left: 1%;
-    box-sizing: border-box;
+  position: absolute;
+  top: 17%;
+  left: 1%;
+  box-sizing: border-box;
 }
 
+/*The div container for the weekly office hours once clicked.
+  Location: Middle of the middle section. Between "office hour" button and "queue" button*/
 
+.content {
+  position: absolute;
+  left: 25%;
+  bottom: 66%;
+  width: 37%;
+  text-align: center;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  border-radius: 15px;
+}
+
+/*List basic properties*/
+
+ul {
+  list-style-type: none;
+}
+
+/*Weekday section*/
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: rgb(68, 137, 158);
+}
+
+/*The actual "Mo Tu We Th Fr" labels*/
+
+.weekdays li {
+  display: inline-block;
+  width: 19%;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+/*Office hour day section*/
+
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+/*Actual content in the days*/
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 19%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #777;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*  Status with countdown timer. 
     Location: top right */
-#status {
-    position: absolute;
-    top: 2%;
-    right: 1%;
-    color: white;
-    padding: 9px;
-    background-color: white;
-    border-radius: 15px;
-  }
 
+#status {
+  position: absolute;
+  top: 2%;
+  right: 1%;
+  color: white;
+  padding: 9px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+.queue {
+  position: absolute;
+  top: 18%;
+  right: 1%;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*  Professors Announcements. This includes alot of containers. Similar to Andys Implementation
     Location: Bottom Left*/
+
 .mySlides {
-    display: none;
+  display: none;
 }
 
 .slideshow-container {
-    max-width: 1000px;
-    position: absolute;
-    bottom: 4%;
-  }
-  
+  max-width: 1000px;
+  position: absolute;
+  bottom: 4%;
+}
+
 /*  The next arrow button on the slideshow
     Location: Middle Left of Announcements*/
+
 .next {
-    position: absolute;
-    top: 50%;
-    left: 93%;
-  }
+  position: absolute;
+  top: 50%;
+  left: 93%;
+}
 
 /*  The previous arrow button on the slideshow
     Location: Middle right of Announcements*/
-  .prev{
-    position: absolute;
-    top: 50%;
-    left: 0%;
-  }
 
-  .fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
+.prev {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
 
 /*  These are the dots for the slideshow
     Location: underneath Announcements */
-  .dots{
-    position: absolute;
-    left: 15%;
-    bottom: 3%;
 
-  }
+.dots {
+  position: absolute;
+  left: 15%;
+  bottom: 3%;
+}
 
-  /*Fading animation*/
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
+/*Fading animation*/
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
 /*  Previous and Next buttons basic properties*/
+
 .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: black;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-  }
-  /* Basic implementation of the dots */
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color:  rgb(68, 137, 158);;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
-  /*The count for the slides -------> probably do not need, not showing on my page.*/
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-  }
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
 
-  
-  .queue{  
-    position: absolute;
-    top: 18%;
-    right: 1%;
-  }
+/*  These are the dots for the slideshow
+    Location: underneath Announcements */
 
+.dots {
+  position: absolute;
+  left: 15%;
+  bottom: 1%;
+}
 
-  #button {
-    border-radius: 15px;
-    background-color:#008CBA;; /* Green */
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-  }
+/* Basic implementation of the dots */
 
-  #button {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
-  }
-  
-  .active,#button:hover {
-    background-color: #008CBA;
-    color: white;
-  }
-    
-  .content {
-    position: absolute;
-    left: 25%;
-    bottom: 66%;
-    width: 37%;
-    text-align: center;
-    display: none;
-    overflow: hidden;
-    background-color: #f1f1f1;
-    border-radius: 15px;
-  }
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: rgb(68, 137, 158);
+  ;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
 
-  .comic{
-    position: absolute;
-    bottom: 5%;
-    right: 5%;
-    border-radius: 15%;
-  }
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
 
-  img{
-    border-radius: 10%;
-  }
+/*  All Buttons properties. This includes the "office hour" button and "queue" button.
+    Location: Middle section*/
 
-  ul {
-      list-style-type: none;
- }
+#button {
+  border-radius: 15px;
+  background-color: #008CBA;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
 
- .weekdays {
-    margin: 0;
-    padding: 10px 0;
-    background-color: rgb(68, 137, 158);
-  }
-  
-  .weekdays li {
-    display: inline-block;
-    width: 19%;
-    color: rgb(255, 255, 255);
-    text-align: center;
-  }
-  .days {
-    padding: 10px 0;
-    background: #eee;
-    margin: 0;
-  }
-  
-  .days li {
-    list-style-type: none;
-    display: inline-block;
-    width: 19%;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size:12px;
-    color: #777;
-    
-  }
-  
+#button {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.active, #button:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*The personal touch section. 
+  Location: Bottom right*/
+
+.comic {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  border-radius: 15%;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*Image basic properties*/
+
+img {
+  border-radius: 10%;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/

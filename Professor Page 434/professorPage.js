@@ -29,7 +29,7 @@ function ohButton() {
 
 function status(here) {
   if (here == false) {
-    outOfOffice(0, 7, 10);
+    outOfOffice(0, 0, 10);
     document.getElementById("status").style.backgroundColor = "red"
   } else {
     inOffice();
