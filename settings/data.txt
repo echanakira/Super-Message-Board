@@ -1,2 +1,1 @@
-Elijah
-0301
+This is the content in data.txt
