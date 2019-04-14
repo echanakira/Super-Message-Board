@@ -37,7 +37,7 @@ function ohButton() {
 function status(here) {
   if (here == false) {
     outOfOffice(0, 0, 10); // this takes parameters (hours,minutes,seconds)
-    document.getElementById("status").style.backgroundColor = "red"
+    document.getElementById("status").style.backgroundColor = "rgb(201, 0, 0)"
   } else {
     inOffice();
     document.getElementById("status").style.backgroundColor = "green"
@@ -123,7 +123,7 @@ function currentSlide(n) {
 
 //
 function setWeeklyOfficeHours(){
-  
+
 }
 
 
