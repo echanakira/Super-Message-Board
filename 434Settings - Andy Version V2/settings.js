@@ -108,7 +108,7 @@ function addAvailableTime() {
         AMorPMEnd = " AM";
         end = end.substr(1);
     }
-    document.getElementById("changeTime").innerHTML += "<h4>" + days[day - 1] + "</h4>" + "<li>" + start + AMorPMStart + " - " + end + AMorPMEnd + "<span class=\"rmButton\"> &#x2716;</span></li>";
+    document.getElementById(days[day - 1]).innerHTML += "<li>" + start + AMorPMStart + " - " + end + AMorPMEnd + "<span class=\"rmButton\"> &#x2716;</span></li>";
     removeTime();   
 }
 
