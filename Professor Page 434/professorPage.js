@@ -1,13 +1,20 @@
 
 
 'use strict';
+
+//will call all respective functions when
 window.onload = function () {
   DateDisplay();
   showSlides();
-  status(false);
+  status(true);
   ohButton();
 }
 
+//the orginal slideIndex
+var slideIndex = 0;
+
+
+//This is the office hour button, a collapsible week
 function ohButton() {
   var coll = document.getElementsByClassName("collapsible");
   var i;
@@ -16,7 +23,7 @@ function ohButton() {
     coll[i].addEventListener("click", function () {
       this.classList.toggle("active");
       var content = document.getElementById("weekbutton")
- 
+
       if (content.style.display === "inline-block") {
         content.style.display = "none";
       } else {
@@ -26,10 +33,10 @@ function ohButton() {
   }
 }
 
-
+//Status function, changes the appearnce based on the boolean "here" value 
 function status(here) {
   if (here == false) {
-    outOfOffice(0, 0, 10);
+    outOfOffice(0, 0, 10); // this takes parameters (hours,minutes,seconds)
     document.getElementById("status").style.backgroundColor = "red"
   } else {
     inOffice();
@@ -38,13 +45,13 @@ function status(here) {
 
 }
 
+//changes the Status text 
 function inOffice() {
   document.getElementById("statusValue").innerHTML = "I am in my office!"
 }
 
-
+//sets up countdown timer
 function outOfOffice(hours, mins, secs) {
-  // Update the count down every 1 second
   var countDownDate = new Date();
   countDownDate.setHours(hours + countDownDate.getHours());
   countDownDate.setMinutes(mins + countDownDate.getMinutes());
@@ -83,6 +90,7 @@ function outOfOffice(hours, mins, secs) {
 
 }
 
+//displays current date and time for the top right "IRB 1207" fieldset
 function DateDisplay() {
   var today = new Date();
   document.getElementById("time").innerHTML = (today.getMonth() + 1) + "/"
@@ -93,9 +101,7 @@ function DateDisplay() {
     + today.getSeconds();
 }
 
-var slideIndex = 0;
-
-
+//sets up professor announcments slides
 function showSlides() {
   var i;
   var slides = document.getElementsByClassName("mySlides");
@@ -112,6 +118,12 @@ function plusSlides(n) {
 }
 function currentSlide(n) {
   showSlides(slideIndex = n);
+}
+
+
+//
+function setWeeklyOfficeHours(){
+  
 }
 
 

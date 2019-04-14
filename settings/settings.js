@@ -1,15 +1,73 @@
-/* Example for using file-system is at the bottom */
 
-function setup() {
+let queue = [{
+        student: "Elijah",
+        subject: 'CMSC434',
+        description: 'NONE'
+    },
+    {
+        student: "Hamza",
+        subject: 'CMSC436',
+        description: 'Exam 1'
+    },
+    {
+        student: "Andrew",
+        subject: 'CMSC436',
+        description: 'Exam 3'
+    }
+]
+resetStorage();
 
-    modalSetup();
-
-
+function resetStorage() {
+    queue = [{
+            student: "Elijah",
+            subject: 'CMSC434',
+            description: 'NONE'
+        },
+        {
+            student: "Hamza",
+            subject: 'CMSC436',
+            description: 'Exam 1'
+        },
+        {
+            student: "Andrew",
+            subject: 'CMSC436',
+            description: 'Exam 3'
+        }
+    ]
+    localStorage.setItem('currentQueue', JSON.stringify(queue))
 }
+
+function updateQueue() {
+    queue.push({
+        student: "JACOB",
+        subject: 'CMSC417',
+        description: 'Exam 3'
+    })
+
+    localStorage.setItem('currentQueue', JSON.stringify(queue))
+}
+
+function getCurrentQueue() {
+    let queue = JSON.parse(localStorage.getItem('currentQueue'))
+    console.log(queue)
+}
+
+load('fs-extra').then((fs) => fs.writeFile());
 
 // Setup opening a modal
 function modalSetup() {
     let listElements = document.getElementsByTagName('li');
+    let set = document.querySelector('#set-storage');
+    let get = document.querySelector('#get-storage');
+
+    set.addEventListener('click',function(){
+        updateQueue();
+    })
+
+    get.addEventListener('click',function(){
+        getCurrentQueue();
+    })
+
     for (let index = 0; index < listElements.length; index++) {
         let li = listElements[index];
         li.addEventListener('click', function () {
@@ -29,22 +87,12 @@ function modalSetup() {
             currentModal[index].style.display = 'none';
         })
     }
-
-
 }
+
+function setup() {
+    modalSetup();
+    console.log('Modals were setup')
+}
+
 
 setup();
-
-
-/* file-system example */
-let fs = require('file-system')
-
-let test = {
-    'firstName': 'Elijah',
-    'lastName': 'Chanakira',
-    'roomNumber': 240,
-    'courseTitle': 'CMSC423'
-}
-
-
-fs.writeFile('./test.json', JSON.stringify(test), function (err) {})
