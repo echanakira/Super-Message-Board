@@ -5,8 +5,8 @@
 //will call all respective functions when
 window.onload = function () {
   DateDisplay();
-  showSlides();
-  status(true);
+  showDivs(slideIndex);
+  status(false);
   ohButton();
 }
 
@@ -102,28 +102,34 @@ function DateDisplay() {
 }
 
 //sets up professor announcments slides
-function showSlides() {
+var slideIndex = 1;
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
   var i;
-  var slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("slideButton");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
   }
-  slideIndex++;
-  if (slideIndex > slides.length) { slideIndex = 1 }
-  slides[slideIndex - 1].style.display = "block";
-  setTimeout(showSlides, 5000); // Change image every 2 seconds
-}
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+
+  for (i = 0; i < dots.length; i++) {
+  
+    dots[i].style.background = "#e7e7e7"
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].style.background = "rgb(201, 0, 0)";
 }
 
 
-//
-function setWeeklyOfficeHours(){
-
-}
 
 
