@@ -1,86 +1,170 @@
 <!doctype html>
 <html>
+
 <head>
-    <script src="professorPage.js"></script>
+
     <link rel="stylesheet" href="professorPage.css">
-    <title>Professor Golub's Office</title>
+    <title>IRB 1207</title>
 </head>
+
 <body>
     <header>
-        <h1 ALIGN = "center" >Professor Golub's Office</h1>
+        <h1 ALIGN="center"><u>Professor Golub's Office</u></h1>
     </header>
 
-   <fieldset class = "classroom">
-       <legend>
-           <strong><font size = "5">IRB 1207</font></strong>
-       </legend>
-       <marquee behavior="scroll" bgcolor="white" loop="-2" width="100%">
-           <i>
-                <font color="red" size = "5">
+    <fieldset class="classroom">
+        <legend>
+            <strong>
+                <font size="5">IRB 1207</font>
+            </strong>
+        </legend>
+        <marquee behavior="scroll" bgcolor="white" loop="-2" width="100%">
+            <i>
+                <font color="black" size="5">
                     <strong>Today's date is :
                         <span id="time"></span>
-                    </strong> 
+                    </strong>
                 </font>
             </i>
-        </marquee> 
-   </fieldset>
+        </marquee>
+    </fieldset>
 
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-    <strong><font size="5">Professor Message</font></strong>
-      <div class = "Sliders" >
-            <img class="mySlides" src="FirstImage.png" style="width:100%" >
-            <img class="mySlides" src="SecondImage.png" style="width:100%">
-            <img class="mySlides" src="ThirdImage.png" style="width:100%">
-            <img class="mySlides" src="FourthImage.png" style="width:100%">
-           
-            <a href="#" class="left" onclick="plusDivs(-1)">&#8249;</a>
-            <a href="#" class="right" onclick="plusDivs(1)">&#8250;</a>
-      </div>
+    <div>
+        <span id="status">
+            <font size="5.4">Status:
+                <span id="statusValue"></span>
+            </font>
+        </span>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div id="bottom">
+        <div id ="slideTitle">
+        <strong>
+            <font size="5">Professor Announcements</font>
+        </strong>
+        </div>
+        <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="w3-content" style="max-width:800px">
+                <img class="mySlides" src="FirstImage.png" width="520" height="350">
+                <img class="mySlides" src="SecondImage.png" width="520" height="350">
+                <img class="mySlides" src="ThirdImage.png" width="520" height="350">
+            </div>
 
 
-   
 
-   <fieldset class = "office">
-       <legend><strong><font size = "5">Professor Golub Office Hours</font></strong></legend>
-       <fieldset>
-           <legend>
-               Monday
-           </legend>
-           4:00pm - 6:00pm 
-       </fieldset>
-       
-       <fieldset>
-            <legend>
-                <font color = "red" >Tuesday</font>
-            </legend>
-            4:00pm - 5:00pm 
-        </fieldset>
-       
-        <fieldset>
-            <legend>
-                Wednesday
-            </legend>
-            N/A
-        </fieldset>
-      
-        <fieldset>
-            <legend>
-                Thursday
-            </legend>
-            5:00pm - 6:30pm 
-        </fieldset>
-    
-       
-        <fieldset>
-            <legend>
-                Friday
-            </legend>
-            3:00pm - 6:00pm 
-        </fieldset>
-   </fieldset>
+
+            <button class="prev" onclick="plusDivs(-1)">❮</button>
+            <button class="next" onclick="plusDivs(1)">❯</button>
+
+            <button class="slideButton" id="1" onclick="currentDiv(1)">1</button>
+            <button class="slideButton" id="2" onclick="currentDiv(2)">2</button>
+            <button class="slideButton" id="3" onclick="currentDiv(3)">3</button>
+        </div>
+
+        <br>
+
+        <!-- The dots/circles for HTML-->
+        <div style="text-align:center" class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <div class=comic>
+
+            <img src="comic.png" width="520" height="350">
+        </div>
+    </div>
+
+    <fieldset class="office">
+        <legend><strong>
+                <font size="5">Todays Office Hours</font>
+            </strong></legend>
+
+        <button class="collapsible" id="button">4:00pm - 6:00pm</button>
+    </fieldset>
+
+
+    <div class="content" id="weekbutton">
+        <ul class="weekdays">
+            <li>
+                <font size="5">Mo</font>
+            </li>
+            <li>
+                <font size="5">Tu</font>
+            </li>
+            <li>
+                <font size="5">We</font>
+            </li>
+            <li>
+                <font size="5">Th</font>
+            </li>
+            <li>
+                <font size="5">Fr</font>
+            </li>
+        </ul>
+
+        <ul class="days">
+            <li>
+                <font size="3"><span id="mondayValue">N/A</span></font>
+            </li>
+            <li>
+                <font size="3"><span id="tuesdayValue">N/A</span></font>
+            </li>
+            <li>
+                <font size="3"><span id="wednesdayValue">N/A</span></font>
+            </li>
+            <li>
+                <font size="3"><span id="ThursdayValue">N/A</span></font>
+            </li>
+            <li>
+                <font size="3"><span id="FridayValue">N/A</span></font>
+            </li>
+        </ul>
+    </div>
+
+
+    <fieldset class="queue">
+        <legend><strong>
+                <font size="5">Queue</font>
+            </strong></legend>
+        <button id="button" onclick="location.href = '../queue/queueform.html';">ADD TO QUEUE</button>'
+        <label>
+            <font size="6"><strong>Queue: </strong></font>
+        </label>
+        <label id="queueNumber">
+            <font size="6">#14</font>
+        </label>
+        <br>
+        <label id="queueUpdate">
+            <font size="3">There are <u><span id="peopleRemaining">X</span></u> people waiting</font>
+        </label>
+    </fieldset>
+
+    <div class="navbar">
+        <a class="backButton" onclick="location.href = '../Home\ Page\ 434/HomePage.html';">
+            <font size="4">&#8592; IRB Homepage</font>
+        </a>
+        <b>
+            <font size="5">1207</font>
+        </b>
+        <c class="icon"><img id="icon" src="Icon.png" width="50" height="50"></c>
+    </div>
+
+
+
+
+
 </body>
+<script src="https://d3js.org/d3.v5.js"></script>
+<script src="professorPage.js"></script>
+
 </html>
