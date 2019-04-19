@@ -132,6 +132,7 @@ function removeFromQueue(index){
 
 function nextInQueue(){
   getCurrentQueue();
+  currentpos++;
   currentStudent=queue.shift();
   localStorage.setItem('currentQueue', JSON.stringify(queue))
 }

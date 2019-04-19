@@ -76,17 +76,15 @@ function addToWaitlist(){
 
   var s1= new Student(name, position,email,phonenum,cls,msg);
 <<<<<<< HEAD
+
+  addToQueue(s1);
+=======
 <<<<<<< HEAD
   waitlist.push(s1);
   alert("you have been added");
 =======
   waitlist.enqueue(s1);
-  //write
-  alert("you have been added to the queue, your number is: "+position);
->>>>>>> c5c84ef85b2ea83a46a4f7a6f88564557e0e3970
-=======
-
-  addToQueue(s1);
+>>>>>>> c18495e1fabbd31840ce5b9f018ffbc23cabc87a
   //write
   alert("you have been added to the queue, your number is: "+position);
 >>>>>>> c5c84ef85b2ea83a46a4f7a6f88564557e0e3970
@@ -113,11 +111,16 @@ function getNumberInline(){
     getCurrentQueue();
     console.log(queue.length);
     return queue.length;
->>>>>>> 71c9770bff1282e2321fe8037fe017f5e3ea0ede
 }
 var currentStudent=null;
 
 <<<<<<< HEAD
+//removes a specific index
+function removeFromQueue(index){
+  getCurrentQueue();
+    queue.splice(index,1);
+    localStorage.setItem('currentQueue', JSON.stringify(queue));
+=======
 function removeFromWaitlist(){
   currentpos+=1;
 <<<<<<< HEAD
@@ -125,14 +128,7 @@ function removeFromWaitlist(){
 =======
   waitlist.dequeue();
 >>>>>>> c5c84ef85b2ea83a46a4f7a6f88564557e0e3970
-=======
-//removes a specific index
-function removeFromQueue(index){
-  getCurrentQueue();
-    queue.splice(index,1);
-    localStorage.setItem('currentQueue', JSON.stringify(queue));
 >>>>>>> c18495e1fabbd31840ce5b9f018ffbc23cabc87a
->>>>>>> 71c9770bff1282e2321fe8037fe017f5e3ea0ede
 }
 //gets next in queue
 
@@ -146,17 +142,6 @@ function getCurrentCL() {
     console.log(classes);
 }
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-function writeToFile(filename, list){
-waitlist=[];
-var text = fs.readFileSync(filename);
-var textByLine = text.split("\n");
-for(i=textByLine.length-1;i>=0;i--){
-  var sarray=textByLine[i].split(",");
-  var s1= new Student(sarray[0], sarray[1],sarray[2],sarray[3],sarray[4],sarray[5]);
-  waitlist.push(s1);
-=======
 //cls is a string for the class name and all that
 
 function addToCL(cls) {
@@ -171,7 +156,18 @@ function removeFromCL(index){
   getCurrentCL();
     classses.splice(index,1);
     localStorage.setItem('classlist', JSON.stringify(classes));
->>>>>>> 71c9770bff1282e2321fe8037fe017f5e3ea0ede
+=======
+<<<<<<< HEAD
+=======
+function writeToFile(filename, list){
+waitlist=[];
+var text = fs.readFileSync(filename);
+var textByLine = text.split("\n");
+for(i=textByLine.length-1;i>=0;i--){
+  var sarray=textByLine[i].split(",");
+  var s1= new Student(sarray[0], sarray[1],sarray[2],sarray[3],sarray[4],sarray[5]);
+  waitlist.push(s1);
+>>>>>>> c18495e1fabbd31840ce5b9f018ffbc23cabc87a
 }
 //gets next in queue
 function resetCL(){
