@@ -1,5 +1,3 @@
-/*All Fieldset properties*/
-
 fieldset {
   border-radius: 15px;
 }
@@ -128,7 +126,7 @@ ul {
   text-align: center;
 }
 
-#slideTitle{
+#slideTitle {
   position: absolute;
   bottom: 64%;
   right: 78%;
@@ -167,7 +165,7 @@ ul {
 }
 
 /*  The next arrow button on the slideshow
-        Location: Middle Left of Announcements*/
+    Location: Middle Left of Announcements*/
 
 .next {
   position: absolute;
@@ -176,12 +174,22 @@ ul {
 }
 
 /*  The previous arrow button on the slideshow
-            Location: Middle right of Announcements*/
+        Location: Middle right of Announcements*/
 
 .prev {
   position: absolute;
   top: 50%;
   left: 0%;
+}
+
+fieldset {
+  border-radius: 15px;
+}
+
+.classroom {
+  display: inline-block;
+  box-sizing: border-box;
+  float: left;
 }
 
 .prev, .next {

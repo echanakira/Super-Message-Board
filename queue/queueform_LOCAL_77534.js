@@ -55,7 +55,6 @@ function addToWaitlist(){
   addToQueue(s1);
   //write
   alert("you have been added to the queue, your number is: "+position);
->>>>>>> c5c84ef85b2ea83a46a4f7a6f88564557e0e3970
 }
 let id=0;
 function setID(){
@@ -87,7 +86,6 @@ function removeFromQueue(index){
   getCurrentQueue();
     queue.splice(index,1);
     localStorage.setItem('currentQueue', JSON.stringify(queue));
->>>>>>> c18495e1fabbd31840ce5b9f018ffbc23cabc87a
 }
 //gets next in queue
 
@@ -134,4 +132,3 @@ function getCurrentQueue() {
     let queue = JSON.parse(localStorage.getItem('queue'));
     console.log(queue);
 }
->>>>>>> c5c84ef85b2ea83a46a4f7a6f88564557e0e3970

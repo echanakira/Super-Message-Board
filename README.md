@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# Super-Message-Board
-# npm i file-system --save
-=======
 # Super-Message-Board
 
 ## **Setup Instructions**
@@ -24,4 +20,3 @@ If you want to have the server display your page. Go to `index.js` and change th
     [w3schools documentation](https://www.w3schools.com/nodejs/nodejs_filesystem.asp)
 
    
->>>>>>> aa41e823c487e0ae5118250c2d6d083fe59fca73

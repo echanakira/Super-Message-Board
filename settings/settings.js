@@ -1,3 +1,52 @@
+<<<<<<< HEAD
+
+let queue = [{
+        student: "Elijah",
+        subject: 'CMSC434',
+        description: 'NONE'
+    },
+    {
+        student: "Hamza",
+        subject: 'CMSC436',
+        description: 'Exam 1'
+    },
+    {
+        student: "Andrew",
+        subject: 'CMSC436',
+        description: 'Exam 3'
+    }
+]
+resetStorage();
+
+function resetStorage() {
+    queue = [{
+            student: "Elijah",
+            subject: 'CMSC434',
+            description: 'NONE'
+        },
+        {
+            student: "Hamza",
+            subject: 'CMSC436',
+            description: 'Exam 1'
+        },
+        {
+            student: "Andrew",
+            subject: 'CMSC436',
+            description: 'Exam 3'
+        }
+    ]
+    localStorage.setItem('currentQueue', JSON.stringify(queue))
+}
+
+function updateQueue() {
+    queue.push({
+        student: "JACOB",
+        subject: 'CMSC417',
+        description: 'Exam 3'
+    })
+
+    localStorage.setItem('currentQueue', JSON.stringify(queue))
+=======
 //Adding the student object and making the changes to access the object and store it as a Json file
 //student object takes name, id num for the queue(now serving number)
 function Student(name,position,email, phonenum,cls,msg){
@@ -83,13 +132,22 @@ function removeFromQueue(index){
 
 function nextInQueue(){
   getCurrentQueue();
+  currentpos++;
   currentStudent=queue.shift();
   localStorage.setItem('currentQueue', JSON.stringify(queue))
 }
 function getCurrentQueue() {
     let queue = JSON.parse(localStorage.getItem('currentQueue'))
     console.log(queue)
+>>>>>>> c5c84ef85b2ea83a46a4f7a6f88564557e0e3970
 }
+
+function getCurrentQueue() {
+    let queue = JSON.parse(localStorage.getItem('currentQueue'))
+    console.log(queue)
+}
+
+load('fs-extra').then((fs) => fs.writeFile());
 
 // Setup opening a modal
 function modalSetup() {
@@ -132,4 +190,8 @@ function setup() {
 }
 
 
+<<<<<<< HEAD
 setup();
+=======
+setup();
+>>>>>>> c5c84ef85b2ea83a46a4f7a6f88564557e0e3970

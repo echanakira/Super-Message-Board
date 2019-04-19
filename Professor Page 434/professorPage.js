@@ -1,5 +1,4 @@
 
-
 'use strict';
 
 //will call all respective functions when
@@ -12,7 +11,6 @@ window.onload = function () {
 
 //the orginal slideIndex
 var slideIndex = 0;
-
 
 //This is the office hour button, a collapsible week
 function ohButton() {
@@ -129,7 +127,5 @@ function showDivs(n) {
   x[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].style.background = "rgb(201, 0, 0)";
 }
-
-
 
 
