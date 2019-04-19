@@ -20,3 +20,10 @@ If you want to have the server display your page. Go to `index.js` and change th
     [w3schools documentation](https://www.w3schools.com/nodejs/nodejs_filesystem.asp)
 
    
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> aa41e823c487e0ae5118250c2d6d083fe59fca73
+>>>>>>> c5c84ef85b2ea83a46a4f7a6f88564557e0e3970
+=======
+>>>>>>> 71c9770bff1282e2321fe8037fe017f5e3ea0ede
