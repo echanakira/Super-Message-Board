@@ -5,7 +5,7 @@
 
 //will call all respective functions when
 window.onload = function () {
-    DateDisplay();
+    setInterval(DateDisplay,1000);
     showDivs(slideIndex);
 }
 
@@ -42,12 +42,29 @@ function showDivs(n) {
 
 function DateDisplay() {
     var today = new Date();
+   
     document.getElementById("time").innerHTML = (today.getMonth() + 1) + "/"
       + today.getDate() + "/"
       + today.getFullYear() + " @ "
-      + today.getHours() + ":"
-      + today.getMinutes() + ":"
-      + today.getSeconds();
+      + normalTime1(today.getHours()) + ":" 
+      + normalTime2(today.getMinutes())
+      
   }
+
+function normalTime1(hours ){
+  if (hours > 12 ){
+    return hours - 12; 
+  } else {
+    return hours; 
+  }
+}
+
+function normalTime2(minutes){
+  if (minutes < 10){
+    return "0"+minutes;
+  } else {
+    return minutes;
+  }
+}
   
 
