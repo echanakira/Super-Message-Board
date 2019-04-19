@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Settings</title>
     <link rel="stylesheet" type="text/css" href="settings.css">
 </head>
@@ -27,9 +27,9 @@
                 <form>
                     <fieldset>
                         <legend>Office Information</legend>
-                        <input name='Proffesor-name' placeholder="Full Name"> <br />
-                        <input name='office-number' placeholder="Office Number"> <br />
-                        <input name='submit' type='submit'>
+                        <input id='professor-name' placeholder="Full Name"> <br />
+                        <input id='office-number' placeholder="Office Number"> <br />
+                        <button id='submit-office'> Submit </button>
                     </fieldset>
                 </form>
             </div>
@@ -41,14 +41,10 @@
                 <h3>Manage Queue</h3> <br />
                 <div id='queue-container'>
                     <ol id='queue'>
-                        <li>Andrew <span> &#x2716;</span></li>
-                        <li>Hamza <span> &#x2716;</span></li>
-                        <li>Jacob <span> &#x2716;</span></li>
-                        <li>Elijah <span> &#x2716;</span></li>
                     </ol>
                 </div>
-                <input name='remove-queue' type='button' value='Notify {Name}'> <br />
-                <input name='toggle-queue' type='button' value='Enable'>
+                <button id='notify-queue' > ------ </button> <br />
+                <button id='queue-toggle' >Enable</button>
             </div>
         </div>
 
@@ -90,11 +86,7 @@
                 <span class='close'>&times;</span>
                 <h3>Manage Announcements </h3> <br />
                 <div id='announcements-container'>
-                    <ol>
-                        <li> Announcement #1</li>
-                        <li> Announcement #2</li>
-                        <li> Announcement #3</li>
-                        <li> Announcement #4</li>
+                    <ol id='annoucement-titles'>
                     </ol>
                 </div>
                 <fieldset>
@@ -117,12 +109,8 @@
 
 </body>
 
-<<<<<<< HEAD
-<script src ="node_modules/clientside-require/dist/bundle.js"></script>
-=======
->>>>>>> c5c84ef85b2ea83a46a4f7a6f88564557e0e3970
-<script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
-<script src="https://d3js.org/d3.v5.js"></script>
+<script src="scripts/announcements.js"></script>
+<script src="scripts/queue.js"></script>
 <script src="settings.js"></script>
 
 </html>

@@ -1,170 +1,79 @@
-<<<<<<< HEAD
-
-let queue = [{
-        student: "Elijah",
-        subject: 'CMSC434',
-        description: 'NONE'
-    },
-    {
-        student: "Hamza",
-        subject: 'CMSC436',
-        description: 'Exam 1'
-    },
-    {
-        student: "Andrew",
-        subject: 'CMSC436',
-        description: 'Exam 3'
-    }
-]
-resetStorage();
-
-function resetStorage() {
-    queue = [{
-            student: "Elijah",
-            subject: 'CMSC434',
-            description: 'NONE'
-        },
-        {
-            student: "Hamza",
-            subject: 'CMSC436',
-            description: 'Exam 1'
-        },
-        {
-            student: "Andrew",
-            subject: 'CMSC436',
-            description: 'Exam 3'
-        }
-    ]
-    localStorage.setItem('currentQueue', JSON.stringify(queue))
-}
-
-function updateQueue() {
-    queue.push({
-        student: "JACOB",
-        subject: 'CMSC417',
-        description: 'Exam 3'
-    })
-
-    localStorage.setItem('currentQueue', JSON.stringify(queue))
-=======
 //Adding the student object and making the changes to access the object and store it as a Json file
 //student object takes name, id num for the queue(now serving number)
-function Student(name,position,email, phonenum,cls,msg){
-  this.name=name;
-  this.posistion=position;
-  this.email=email;
-  this.phonenum=phonenum;
-  this.cls=cls;
-  this.msg=msg;
+function Student(name, position, email, phonenum, cls, msg) {
+    this.name = name;
+    this.posistion = position;
+    this.email = email;
+    this.phonenum = phonenum;
+    this.cls = cls;
+    this.msg = msg;
 }
+
 //using shift to dequeue and push to enqueue
-var id=0;
+var id = 0;
 let queue = [];
-function resetStorageupdated() {
-var student=new Student("Elijah",id,"bob@bill.com", "333-333-3333","cmsc434","need help on project");
-id++;
-queue.push(student);
-//create a new student and then increase the id for the next person
-student =new Student("Elijah",id,"bob@bill.com", "333-333-3333","cmsc434","need help on project");
-id++;
-queue.push(student);
-localStorage.setItem('currentQueue', JSON.stringify(queue))
-}
-/*
-let queue = [{
-        student: "Elijah",
-        subject: 'CMSC434',
-        description: 'NONE'
-    },
-    {
-        student: "Hamza",
-        subject: 'CMSC436',
-        description: 'Exam 1'
-    },
-    {
-        student: "Andrew",
-        subject: 'CMSC436',
-        description: 'Exam 3'
-    }
-]
-*/
-resetStorage();
+let currentStudent;
+let numInQueue = 0;
 
 function resetStorage() {
-  resetStorageupdated();
-  /*
-    queue = [{
-            student: "Elijah",
-            subject: 'CMSC434',
-            description: 'NONE'
-        },
-        {
-            student: "Hamza",
-            subject: 'CMSC436',
-            description: 'Exam 1'
-        },
-        {
-            student: "Andrew",
-            subject: 'CMSC436',
-            description: 'Exam 3'
-        }
-    ]
-
-    localStorage.setItem('currentQueue', JSON.stringify(queue))
-    */
+    resetStorageupdated();
 }
-//old update queue
-function addToQueue(studentObj) {
-    getCurrentQueue();
-    queue.push(studentObj);
+
+function resetStorageupdated() {
+    var student = new Student("Elijah", id, "bob@bill.com", "333-333-3333", "cmsc434", "need help on project");
+    id++;
+    queue.push(student);
+    //create a new student and then increase the id for the next person
+    student = new Student("Jacob", id, "bob@bill.com", "333-333-3333", "cmsc434", "need help on project");
+    id++;
+    queue.push(student);
     localStorage.setItem('currentQueue', JSON.stringify(queue))
 }
 
-var currentStudent=null;
 
-//removes a specific index
-function removeFromQueue(index){
-  getCurrentQueue();
-    queue.splice(index,1);
-    localStorage.setItem('currentQueue', JSON.stringify(queue))
-}
-//gets next in queue
-
-function nextInQueue(){
-  getCurrentQueue();
-  currentpos++;
-  currentStudent=queue.shift();
-  localStorage.setItem('currentQueue', JSON.stringify(queue))
-}
-function getCurrentQueue() {
-    let queue = JSON.parse(localStorage.getItem('currentQueue'))
-    console.log(queue)
->>>>>>> c5c84ef85b2ea83a46a4f7a6f88564557e0e3970
+/******************** HTML STEUP AND MANIPULATION ********************/
+function setup() {
+    // console.log('Setting up')
+    setupProfessorInfo();
+    modalSetup();
+    setupQueue();
+    setupEvents();
+    setupAnnouncements();
 }
 
-function getCurrentQueue() {
-    let queue = JSON.parse(localStorage.getItem('currentQueue'))
-    console.log(queue)
+function setupEvents() {
+    let officeBtn = document.querySelector('#submit-office');
+    let toggleBtn = document.querySelector('#queue-toggle');
+    let notifyBtn = document.querySelector('#notify-queue');
+
+
+    officeBtn.addEventListener('click', function () {
+        submitOfficeInfo();
+    })
+
+    toggleBtn.addEventListener('click', function () {
+        toggleQueue();
+    })
 }
 
-load('fs-extra').then((fs) => fs.writeFile());
-
-// Setup opening a modal
 function modalSetup() {
     let listElements = document.getElementsByTagName('li');
+    console.log(`page-body li -> ${listElements}`)
+    console.log(listElements)
     let set = document.querySelector('#set-storage');
     let get = document.querySelector('#get-storage');
 
-    set.addEventListener('click',function(){
+    set.addEventListener('click', function () {
         updateQueue();
     })
 
-    get.addEventListener('click',function(){
+    get.addEventListener('click', function () {
         getCurrentQueue();
     })
 
     for (let index = 0; index < listElements.length; index++) {
         let li = listElements[index];
+        if (li.id == null) break;
         li.addEventListener('click', function () {
             let name = this.id;
             let modal = document.querySelector(`#${name}-modal`)
@@ -184,14 +93,36 @@ function modalSetup() {
     }
 }
 
-function setup() {
-    modalSetup();
-    console.log('Modals were setup')
+
+function setupProfessorInfo() {
+    let title = document.querySelector('#page-title');
+    title.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s
+    Hub`;
 }
 
 
-<<<<<<< HEAD
+function refreshPage() {
+    setupProfessorInfo();
+}
+
+resetStorage();
 setup();
-=======
-setup();
->>>>>>> c5c84ef85b2ea83a46a4f7a6f88564557e0e3970
+
+//Created localStorage variable to enable and disable queue
+//Created queue population
+//TODO: Add Hover Effect on X's
+//TODO: option with in or out of office -> send array of time (Look at Andy's Time)
+
+//old update queue
+function addToQueue(studentObj) {
+    getCurrentQueue();
+    queue.push(studentObj);
+    localStorage.setItem('currentQueue', JSON.stringify(queue))
+}
+
+//removes a specific index
+function removeFromQueue(index) {
+    getCurrentQueue();
+    queue.splice(index, 1);
+    localStorage.setItem('currentQueue', JSON.stringify(queue))
+}
