@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Settings</title>
     <link rel="stylesheet" type="text/css" href="settings.css">
 </head>
@@ -17,8 +17,8 @@
             <li id='availability'>Manage Office Availablity</li>
             <li id='announcements'> Manage Announcements</li>
         </ul>
-        <button id="get-storage"> Get Storage </button>
-        <button id='set-storage'> Set Storage </button>
+        <!-- <button id="get-storage"> Get Storage </button>
+        <button id='set-storage'> Set Storage </button> -->
 
         <div class='modal' id='office-modal'>
             <div class='modal-content'>
@@ -27,9 +27,16 @@
                 <form>
                     <fieldset>
                         <legend>Office Information</legend>
-                        <input name='Proffesor-name' placeholder="Full Name"> <br />
-                        <input name='office-number' placeholder="Office Number"> <br />
-                        <input name='submit' type='submit'>
+                        <input id='professor-name' placeholder="Full Name"> <br />
+                        <input id='office-number' placeholder="Office Number"> <br />
+                        <fieldset id='status-update'>
+                            <legend>Status</legend>
+                            <input type='radio' id='in-office' checked> In </input>
+                            <input type="radio" id='out-office'> Out </input> <br />
+                            <p> Enter return time (if you are going out of office):</p>
+                            <input type="time" id='time'>
+                        </fieldset> <br />
+                        <button id='submit-office'> Submit </button>
                     </fieldset>
                 </form>
             </div>
@@ -41,14 +48,10 @@
                 <h3>Manage Queue</h3> <br />
                 <div id='queue-container'>
                     <ol id='queue'>
-                        <li>Andrew <span> &#x2716;</span></li>
-                        <li>Hamza <span> &#x2716;</span></li>
-                        <li>Jacob <span> &#x2716;</span></li>
-                        <li>Elijah <span> &#x2716;</span></li>
                     </ol>
                 </div>
-                <input name='remove-queue' type='button' value='Notify {Name}'> <br />
-                <input name='toggle-queue' type='button' value='Enable'>
+                <button id='notify-queue'> ------ </button> <br />
+                <button id='queue-toggle'>Enable</button>
             </div>
         </div>
 
@@ -67,20 +70,49 @@
 
         <div class='modal' id='availability-modal'>
             <div class='modal-content'>
-                <span class='close'>&times;</span>
+                <span class='close'>&#x2716;</span>
                 <h2>Manage Availability</h2> <br />
                 <div id='time-container'>
-                    <ul>
+                    <ul id="changeTime">
                         <h3>Current Times</h3>
-                        <h4>Monday</h4>
-                        <li>11 am - 2 pm <span> &#x2716;</span></li>
-                        <h4>Wednesday</h4>
-                        <li> 11 am - 2 pm <span> &#x2716;</span></li>
-                        <li> 4 pm - 5 pm <span> &#x2716;</span></li>
+                        <h4> Monday </h4>
+                        <div id="Monday"> </div>
+                        <h4> Tuesday </h4>
+                        <div id="Tuesday"> </div>
+                        <h4> Wednesday </h4>
+                        <div id="Wednesday"> </div>
+                        <h4> Thursday </h4>
+                        <div id="Thursday"> </div>
+                        <h4> Friday </h4>
+                        <div id="Friday"> </div>
+                        <h4> Saturday </h4>
+                        <div id="Saturday"> </div>
+                        <h4> Sunday </h4>
+                        <div id="Sunday"> </div>
+                        <!-- Add a class to the span -->
+
                     </ul>
                     <h3> Add New Time</h3>
-                    <input type='time'> <br />
-                    <input type='submit'>
+
+                    <form>
+                        <label>Day</label>
+                        <br>
+                        <select id="dayOfWeek">
+                            <option value="1">Monday</option>
+                            <option value="2">Tuesday</option>
+                            <option value="3">Wednesday</option>
+                            <option value="4">Thursday</option>
+                            <option value="5">Friday</option>
+                            <option value="6">Saturday</option>
+                            <option value="7">Sunday</option>
+                        </select>
+                        <h4> Start Time </h4>
+                        <input type='time' id="startTime"> <br />
+                        <h4> End Time </h4>
+                        <input type='time' id="endTime"> <br />
+
+                    </form>
+                    <input type='submit' onclick="addAvailableTime();" id='submitTimes'>
                 </div>
             </div>
         </div>
@@ -90,23 +122,21 @@
                 <span class='close'>&times;</span>
                 <h3>Manage Announcements </h3> <br />
                 <div id='announcements-container'>
-                    <ol>
-                        <li> Announcement #1</li>
-                        <li> Announcement #2</li>
-                        <li> Announcement #3</li>
-                        <li> Announcement #4</li>
+                    <ol id='annoucement-titles'>
                     </ol>
                 </div>
                 <fieldset>
                     <legend id='new-announcement'> Create New Announcement</legend>
-                    <input name='announcement-title' placeholder="Title"> <br />
-                    <textarea rows="4" cols="50" placeholder="Description"></textarea> <br />
+                    <input id='announcement-title' placeholder="Title"> <br />
+                    <textarea id='announcement-description' rows="4" cols="50" placeholder="Description"></textarea>
+                    <br />
                     <h3> Select Photo</h3>
-                    <input type='radio' value='theme-1' />Photo #1 </input>
-                    <input type='radio' value='theme-2' />Photo #2 </input>
-                    <input type='radio' value='theme-3' />Photo #3 </input>
-                    <input type='radio' value='theme-4' />Photo #4 </input>
-                    <p> Upload a photo</p> <input type='file'>
+                    <input id="option-1" type='radio' value='theme-1' />Photo #1 </input>
+                    <input id="option-2" type='radio' value='theme-2' />Photo #2 </input>
+                    <input id="option-3" type='radio' value='theme-3' />Photo #3 </input>
+                    <input id="option-4" type='radio' value='theme-4' />Photo #4 </input> <br />
+                    <!-- <p> Upload a photo</p> <input type='file'> -->
+                    <button id='announcement-submit'> Submit </button>
                 </fieldset>
             </div>
         </div>
@@ -117,12 +147,9 @@
 
 </body>
 
-<<<<<<< HEAD
-<script src ="node_modules/clientside-require/dist/bundle.js"></script>
-=======
->>>>>>> c5c84ef85b2ea83a46a4f7a6f88564557e0e3970
-<script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
-<script src="https://d3js.org/d3.v5.js"></script>
-<script src="settings.js"></script>
+<script src="scripts/announcements.js"></script>
+<script src="scripts/queue.js"></script>
+<script src="scripts/availability.js"></script>
+<script src="scripts/settings.js"></script>
 
 </html>
