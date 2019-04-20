@@ -1,12 +1,11 @@
 
 'use strict';
 
-
-
 //will call all respective functions when
 window.onload = function () {
     setInterval(DateDisplay,1000);
     showDivs(slideIndex);
+    setupNav();
 }
 
 
@@ -66,5 +65,13 @@ function normalTime2(minutes){
     return minutes;
   }
 }
+
+function setupNav(){
+  let office = document.querySelector('#nav-office-number');
+  console.log(office);
+  office.innerHTML = localStorage.getItem('officeNumber');
+}
+
+
   
 

@@ -15,6 +15,11 @@ let queue = [];
 let currentStudent;
 let numInQueue = 0;
 
+window.onload = function(){
+    resetStorage();
+    setup();
+    }
+
 function resetStorage() {
     resetStorageupdated();
 }
@@ -28,6 +33,7 @@ function resetStorageupdated() {
     id++;
     queue.push(student);
     localStorage.setItem('currentQueue', JSON.stringify(queue))
+    localStorage.setItem('officeNumber', '1208');
     // localStorage.setItem('officeStatus', JSON.stringify({status:true, time:null}))
 
 }
@@ -153,30 +159,12 @@ function setupProfessorInfo() {
     let title = document.querySelector('#page-title');
     title.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s
     Hub`;
+    let office = document.querySelector('#nav-office-number');
+    console.log(office);
+    office.innerHTML = localStorage.getItem('officeNumber');
+
 }
 
 function refreshPage() {
     setupProfessorInfo();
-}
-
-resetStorage();
-setup();
-
-//Created localStorage variable to enable and disable queue
-//Created queue population
-//TODO: Add Hover Effect on X's
-//TODO: option with in or out of office -> send array of time (Look at Andy's Time)
-
-//old update queue
-function addToQueue(studentObj) {
-    getCurrentQueue();
-    queue.push(studentObj);
-    localStorage.setItem('currentQueue', JSON.stringify(queue))
-}
-
-//removes a specific index
-function removeFromQueue(index) {
-    getCurrentQueue();
-    queue.splice(index, 1);
-    localStorage.setItem('currentQueue', JSON.stringify(queue))
 }

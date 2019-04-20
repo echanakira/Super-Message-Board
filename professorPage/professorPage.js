@@ -8,6 +8,7 @@ window.onload = function () {
   status(true);
   ohButton();
   getOH();
+  setupNav();
 }
 
 //the orginal slideIndex
@@ -162,6 +163,12 @@ function noOH(day){
   } else {
     return day;
   }
+}
+
+function setupNav(){
+  let office = document.querySelector('#nav-office-number');
+  console.log(office);
+  office.innerHTML = localStorage.getItem('officeNumber');
 }
 
 
