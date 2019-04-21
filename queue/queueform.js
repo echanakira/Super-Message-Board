@@ -241,3 +241,11 @@ function getCurrentQueue() {
     let queue = JSON.parse(localStorage.getItem('queue'));
     console.log(queue);
 }
+
+function setupNav(){
+    let office = document.querySelector('#nav-office-number');
+    
+    office.innerHTML = localStorage.getItem('officeNumber');
+
+  }
+  

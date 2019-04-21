@@ -2,17 +2,17 @@
 let announcements = [{
         title: 'Test1',
         description: 'Test Description',
-        photo: '../assets/stock1.jpg'
+        photo: '../settings/assets/stock1.jpg'
     },
     {
         title: 'Test2',
         description: 'Test Description',
-        photo: '../assets/stock1.jpg'
+        photo: '../settings/assets/stock2.png'
     },
     {
         title: 'Test3',
         description: 'Test Description',
-        photo: '../assets/stock1.jpg'
+        photo: '../settings/assets/stock3.jpg'
     },
 ];
 localStorage.setItem('announcements', JSON.stringify(announcements))

@@ -16,7 +16,7 @@ let currentStudent;
 let numInQueue = 0;
 
 window.onload = function(){
-    resetStorage();
+    //resetStorage();
     setup();
     }
 
@@ -95,18 +95,20 @@ function submitOfficeInfo() {
     localStorage.setItem('professorName', JSON.stringify(name.value));
     localStorage.setItem('officeNumber', JSON.stringify(office.value));
 
-    if (document.getElementById('in-office').checked) {
-        let newTime = document.querySelector('#time');
-        console.log(newTime.value);
+    if (document.getElementById('in-office').checked) {   
         statusObj = {
             status: 'true',
-            time: toStandardTime(newTime.value)
+            hours: null,
+            minutes: null,
         }
         localStorage.setItem('officeStatus', JSON.stringify(statusObj));
     } else {
+        let newHours = document.querySelector('#hours');
+        let newMinutes = document.querySelector("#minutes")
         statusObj = {
             status: 'false',
-            time: null
+            hours: newHours.value,
+            minutes: newMinutes.value,
         }
         localStorage.setItem('officeStatus', JSON.stringify(statusObj));
     }

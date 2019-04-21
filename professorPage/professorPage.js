@@ -5,16 +5,19 @@
 window.onload = function () {
   setInterval(DateDisplay,1000);
   showDivs(slideIndex);
-  status(true);
+  status();
   ohButton();
   getOH();
   setupNav();
+  getAnnouncements1();
+  getAnnouncements2();
+  getAnnouncements3();
 }
 
 //the orginal slideIndex
 var slideIndex = 0;
 function enabledQ(){
-  return JSON.parse(localStorage.getItem("queueStatus"))==="Enabled";
+  return localStorage.getItem("queueStatus")==="Enabled";
 }
 //This is the office hour button, a collapsible week
 function ohButton() {
@@ -38,9 +41,11 @@ function ohButton() {
 }
 
 //Status function, changes the appearnce based on the boolean "here" value
-function status(here) {
-  if (here == false) {
-    outOfOffice(0, 0, 10); // this takes parameters (hours,minutes,seconds)
+function status() {
+  let here = JSON.parse(localStorage.getItem('officeStatus'))
+  
+  if (here.status == "false") {
+    outOfOffice(parseInt(here.hours), parseInt(here.minutes), 0); // this takes parameters (hours,minutes,seconds)
     document.getElementById("status").style.backgroundColor = "rgb(201, 0, 0)"
   } else {
     inOffice();
@@ -57,6 +62,7 @@ function inOffice() {
 //sets up countdown timer
 function outOfOffice(hours, mins, secs) {
   var countDownDate = new Date();
+
   countDownDate.setHours(hours + countDownDate.getHours());
   countDownDate.setMinutes(mins + countDownDate.getMinutes());
   countDownDate.setSeconds(secs + 1 + countDownDate.getSeconds());
@@ -174,4 +180,20 @@ function setupNav(){
 
   office1.innerHTML = localStorage.getItem('officeNumber');
   office2.innerHTML = localStorage.getItem('officeNumber');
+}
+
+
+//get the announcments
+function getAnnouncements1(){
+  let officeHours = JSON.parse(localStorage.getItem("announcements"));
+  console.log(officeHours[0].photo)
+  document.getElementById("img1").src =  officeHours[0].photo;
+}
+function getAnnouncements2(){
+  let officeHours = JSON.parse(localStorage.getItem("announcements"));
+  document.getElementById("img2").src = officeHours[1].photo
+}
+function getAnnouncements3(){
+  let officeHours = JSON.parse(localStorage.getItem("announcements"));
+  document.getElementById("img3").src = officeHours[2].photo
 }
