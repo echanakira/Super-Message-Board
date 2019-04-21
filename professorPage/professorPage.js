@@ -148,7 +148,6 @@ function showDivs(n) {
 
 function getOH(){
   let officeHours = JSON.parse(localStorage.getItem("availability"));
-  console.log(officeHours.Tuesday)
   document.getElementById("mondayValue").innerHTML = noOH(officeHours.Monday);
   document.getElementById("tuesdayValue").innerHTML = noOH(officeHours.Tuesday);
   document.getElementById("wednesdayValue").innerHTML = noOH(officeHours.Wedneday);
