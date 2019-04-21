@@ -21,62 +21,6 @@ fieldset {
 
 
 
-/*///////////////////////////////////////////////////////////////////////////////////////////*/
-
-/*Standard Navigation Bar
-  Location: Bottom of page*/
-
-.navbar {
-  background-color: #333;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-/* Style the links inside the navigation bar */
-
-.navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar b {
-  position: absolute;
-  right: 48%;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 10px 12px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar c {
-  position: absolute;
-  right: 1%;
-  text-align: center;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-/* Change the color of links on hover */
-
-.navbar a.backButton:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.navbar c.backButton:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/*///////////////////////////////////////////////////////////////////////////////////////////*/
 
 img {
   border-radius: 10%;

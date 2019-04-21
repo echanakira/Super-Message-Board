@@ -4,11 +4,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Settings</title>
+
     <link rel="stylesheet" type="text/css" href="settings.css">
+    <link rel="stylesheet" type="text/css" href="../global_styles/global.css">
+
 </head>
 
 <body>
-    <h1 id="page-title"> Proffesor Hub</h1>
+    <h1 id="page-title"></h1>
     <div id='page-body'>
         <ul>
             <li id='office'>Office Information</li>
@@ -17,19 +20,30 @@
             <li id='availability'>Manage Office Availablity</li>
             <li id='announcements'> Manage Announcements</li>
         </ul>
-        <button id="get-storage"> Get Storage </button>
-        <button id='set-storage'> Set Storage </button>
+        <!-- <button id="get-storage"> Get Storage </button>
+        <button id='set-storage'> Set Storage </button> -->
 
         <div class='modal' id='office-modal'>
             <div class='modal-content'>
                 <span class='close'>&times;</span>
-                <h3>Update Office Information</h3> <br />
+                <h2>Update Office Information</h3> <br />
                 <form>
                     <fieldset>
                         <legend>Office Information</legend>
+
                         <input id='professor-name' placeholder="Full Name"> <br />
                         <input id='office-number' placeholder="Office Number"> <br />
+                        <fieldset id='status-update'>
+                            <legend>Status</legend>
+
+                            <input type='radio' name="inout" id='in-office' checked> In </input>
+                            <input type="radio" name="inout" id='out-office'> Out </input> <br />
+
+                            <p> Enter return time (if you are going out of office):</p>
+                            <input type="time" id='time'>
+                        </fieldset> <br />
                         <button id='submit-office'> Submit </button>
+                        <button onclick="window.location.reload()">Cancel</button>
                     </fieldset>
                 </form>
             </div>
@@ -43,8 +57,8 @@
                     <ol id='queue'>
                     </ol>
                 </div>
-                <button id='notify-queue' > ------ </button> <br />
-                <button id='queue-toggle' >Enable</button>
+                <button id='notify-queue'> ------ </button> <br />
+                <button id='queue-toggle'>Enable</button>
             </div>
         </div>
 
@@ -53,30 +67,62 @@
                 <span class='close'>&times;</span>
                 <fieldset>
                     <legend>Select Theme</legend> <br />
-                    <input type='radio' value='theme-1' checked> Theme #1 </input> <br />
-                    <input type='radio' value='theme-2' />Theme #2 </input><br />
-                    <input type='radio' value='theme-3' />Theme #3 </input> <br />
+
+                    <input type='radio' name="themeradio" value='theme-1' checked> Theme #1 </input> <br />
+                    <input type='radio' name="themeradio" value='theme-2' />Theme #2 </input><br />
+                    <input type='radio' name="themeradio" value='theme-3' />Theme #3 </input> <br />
                     <input type='submit'>
+                    <button onclick="window.location.reload()">Cancel</button>
                 </fieldset>
             </div>
         </div>
 
         <div class='modal' id='availability-modal'>
             <div class='modal-content'>
-                <span class='close'>&times;</span>
+                <span class='close'>&#x2716;</span>
                 <h2>Manage Availability</h2> <br />
                 <div id='time-container'>
-                    <ul>
+                    <ul id="changeTime">
                         <h3>Current Times</h3>
-                        <h4>Monday</h4>
-                        <li>11 am - 2 pm <span> &#x2716;</span></li>
-                        <h4>Wednesday</h4>
-                        <li> 11 am - 2 pm <span> &#x2716;</span></li>
-                        <li> 4 pm - 5 pm <span> &#x2716;</span></li>
+                        <h4> Monday </h4>
+                        <div id="Monday"> </div>
+                        <h4> Tuesday </h4>
+                        <div id="Tuesday"> </div>
+                        <h4> Wednesday </h4>
+                        <div id="Wednesday"> </div>
+                        <h4> Thursday </h4>
+                        <div id="Thursday"> </div>
+                        <h4> Friday </h4>
+                        <div id="Friday"> </div>
+                        <h4> Saturday </h4>
+                        <div id="Saturday"> </div>
+                        <h4> Sunday </h4>
+                        <div id="Sunday"> </div>
+                        <!-- Add a class to the span -->
+
                     </ul>
                     <h3> Add New Time</h3>
-                    <input type='time'> <br />
-                    <input type='submit'>
+
+                    <form>
+                        <label>Day</label>
+                        <br>
+                        <select id="dayOfWeek">
+                            <option value="1">Monday</option>
+                            <option value="2">Tuesday</option>
+                            <option value="3">Wednesday</option>
+                            <option value="4">Thursday</option>
+                            <option value="5">Friday</option>
+                            <option value="6">Saturday</option>
+                            <option value="7">Sunday</option>
+                        </select>
+                        <h4> Start Time </h4>
+                        <input type='time' id="startTime"> <br />
+                        <h4> End Time </h4>
+                        <input type='time' id="endTime"> <br />
+
+                    </form>
+                    <input type='submit' onclick="addAvailableTime();" id='submitTimes'>
+                    <button onclick="window.location.reload()">Cancel</button>
                 </div>
             </div>
         </div>
@@ -91,17 +137,31 @@
                 </div>
                 <fieldset>
                     <legend id='new-announcement'> Create New Announcement</legend>
-                    <input name='announcement-title' placeholder="Title"> <br />
-                    <textarea rows="4" cols="50" placeholder="Description"></textarea> <br />
+                    <input id='announcement-title' placeholder="Title"> <br />
+                    <textarea id='announcement-description' rows="4" cols="50" placeholder="Description"></textarea>
+                    <br />
                     <h3> Select Photo</h3>
-                    <input type='radio' value='theme-1' />Photo #1 </input>
-                    <input type='radio' value='theme-2' />Photo #2 </input>
-                    <input type='radio' value='theme-3' />Photo #3 </input>
-                    <input type='radio' value='theme-4' />Photo #4 </input>
-                    <p> Upload a photo</p> <input type='file'>
+                    <input name="photoradio" id="option-1" type='radio' value='theme-1' />Photo #1 </input>
+                    <input name="photoradio" id="option-2" type='radio' value='theme-2' />Photo #2 </input>
+                    <input name="photoradio" id="option-3" type='radio' value='theme-3' />Photo #3 </input>
+                    <input name="photoradio" id="option-4" type='radio' value='theme-4' />Photo #4 </input> <br />
+                    <!-- <p> Upload a photo</p> <input type='file'> -->
+                    <button id='announcement-submit'> Submit </button>
+                    <button onclick="window.location.reload()">Cancel</button>
                 </fieldset>
             </div>
         </div>
+
+        <div class="navbar">
+            <b>
+                <font size="5" id='nav-office-number'></font>
+            </b>
+            <a class="backButton" onclick="location.href = '../professorPage/professorPage.html';">
+                <font size="4">Professor Golub's Page &rarr;</font>
+            </a>
+            <c class="icon"><img id="icon" src="../homePage/icon.png" width="50" height="50"></c>
+        </div>
+
     </div>
 
 
@@ -111,6 +171,7 @@
 
 <script src="scripts/announcements.js"></script>
 <script src="scripts/queue.js"></script>
-<script src="settings.js"></script>
+<script src="scripts/availability.js"></script>
+<script src="scripts/settings.js"></script>
 
 </html>

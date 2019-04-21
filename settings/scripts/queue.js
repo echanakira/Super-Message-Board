@@ -45,16 +45,7 @@ function getCurrentQueue() {
     return queue;
 }
 
-function submitOfficeInfo() {
-    let name = document.querySelector('#office-modal #professor-name');
-    let office = document.querySelector('#office-number');
 
-    console.log('This is name' + name)
-
-    localStorage.setItem('professorName', JSON.stringify(name.value));
-    localStorage.setItem('officeNumber', JSON.stringify(office.value));
-    // refreshPage();
-}
 
 
 function loadQueue() {
