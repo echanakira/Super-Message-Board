@@ -17,7 +17,12 @@ function toggleQueue() {
 
         notify.addEventListener('click', function () {
             nextInQueue();
-            loadQueue();
+            queue = loadQueue();
+            if(queue.length > 0){
+                this.innerHTML = 'Notify ' + queue[0]['name']
+            }else{
+                this.innerHTML = '------'
+            }
         });
 
     } else {
@@ -90,7 +95,7 @@ function findStudent(studentName, queue) {
 
     return result;
 }
-            
+
 /* Function removes an object from localStorage
  *
  */
@@ -104,4 +109,3 @@ function disableQueue() {
     let queueElement = document.querySelector('ol');
     queueElement.innerHTML = "";
 }
-
