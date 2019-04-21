@@ -109,7 +109,6 @@ function resetStorage() {
             description: 'Exam 3'
         }
     ]
-
     localStorage.setItem('currentQueue', JSON.stringify(queue))
     */
 }
