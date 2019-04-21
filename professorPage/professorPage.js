@@ -197,3 +197,12 @@ function getAnnouncements3(){
   let officeHours = JSON.parse(localStorage.getItem("announcements"));
   document.getElementById("img3").src = officeHours[2].photo
 }
+
+//Queue display details
+function peopleWaiting(){
+  let total = JSON.parse(localStorage.getItem("currentQueue"))
+  
+  document.getElementById("peopleRemaining").innerHTML = total.length
+}
+
+peopleWaiting()
