@@ -49,17 +49,26 @@ function setup() {
     loadAvailableTime();
 
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> aa28d7d3587e7667427304874074c56c675a61b7
 function validateName(name) {
     var re = /^([a-zA-Z]+(-[a-zA-Z]+)*(\s[a-zA-Z]+)*)$/;
     return re.test(String(name).toLowerCase());
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> aa28d7d3587e7667427304874074c56c675a61b7
 function validateNumber(num) {
     var re = /^[0-5][0-9][0-9][0-9]$/;
     return re.test(String(num));
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> aa28d7d3587e7667427304874074c56c675a61b7
 function setupEvents() {
    let officeBtn = document.querySelector('#submit-office');
     let toggleBtn = document.querySelector('#queue-toggle');

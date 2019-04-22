@@ -27,6 +27,27 @@
             <div class='modal-content'>
                 <span class='close'>&times;</span>
                 <h2>Update Office Information</h3> <br />
+<<<<<<< HEAD
+                <form>
+                    <fieldset>
+                        <legend>Office Information</legend>
+
+                        <input id='professor-name' placeholder="Full Name"> <br />
+                        <input id='office-number' placeholder="Office Number"> <br />
+                        <fieldset id='status-update'>
+                            <legend>Status</legend>
+
+                            <input type='radio' name="inout" id='in-office' checked> In </input>
+                            <input type="radio" name="inout" id='out-office'> Out </input> <br />
+
+                            <p> Enter return time (if you are going out of office):</p>
+                            <input type="time" id='time'>
+                        </fieldset> <br />
+                        <button id='submit-office'> Submit </button>
+                        <button onclick="window.location.reload()">Cancel</button>
+                    </fieldset>
+                </form>
+=======
                     <form>
                         <fieldset>
                             <legend>Office Information</legend>
@@ -46,6 +67,7 @@
                             <button id='submit-office'> Submit </button>
                         </fieldset>
                     </form>
+>>>>>>> aa28d7d3587e7667427304874074c56c675a61b7
             </div>
         </div>
 
@@ -67,10 +89,19 @@
                 <span class='close'>&times;</span>
                 <fieldset>
                     <legend>Select Theme</legend> <br />
+<<<<<<< HEAD
+
+                    <input type='radio' name="themeradio" value='theme-1' checked> Theme #1 </input> <br />
+                    <input type='radio' name="themeradio" value='theme-2' />Theme #2 </input><br />
+                    <input type='radio' name="themeradio" value='theme-3' />Theme #3 </input> <br />
+                    <input type='submit'>
+                    <button onclick="window.location.reload()">Cancel</button>
+=======
                     <input type='radio' name='theme' value='theme-1' checked> Theme #1 </input> <br />
                     <input type='radio' name='theme' value='theme-2' />Theme #2 </input><br />
                     <input type='radio' name='theme' 2value='theme-3' />Theme #3 </input> <br />
                     <button id='theme-submit'> Button </button>
+>>>>>>> aa28d7d3587e7667427304874074c56c675a61b7
                 </fieldset>
             </div>
         </div>
@@ -120,7 +151,12 @@
                         </fieldset>
 
                     </form>
+<<<<<<< HEAD
+                    <input type='submit' onclick="addAvailableTime();" id='submitTimes'>
+                    <button onclick="window.location.reload()">Cancel</button>
+=======
                     <button onclick="addAvailableTime();" id='submitTimes'> Submit </button>
+>>>>>>> aa28d7d3587e7667427304874074c56c675a61b7
                 </div>
             </div>
         </div>
@@ -139,12 +175,13 @@
                     <textarea id='announcement-description' rows="4" cols="50" placeholder="Description"></textarea>
                     <br />
                     <h3> Select Photo</h3>
-                    <input id="option-1" type='radio' value='theme-1' />Photo #1 </input>
-                    <input id="option-2" type='radio' value='theme-2' />Photo #2 </input>
-                    <input id="option-3" type='radio' value='theme-3' />Photo #3 </input>
-                    <input id="option-4" type='radio' value='theme-4' />Photo #4 </input> <br />
+                    <input name="photoradio" id="option-1" type='radio' value='theme-1' />Photo #1 </input>
+                    <input name="photoradio" id="option-2" type='radio' value='theme-2' />Photo #2 </input>
+                    <input name="photoradio" id="option-3" type='radio' value='theme-3' />Photo #3 </input>
+                    <input name="photoradio" id="option-4" type='radio' value='theme-4' />Photo #4 </input> <br />
                     <!-- <p> Upload a photo</p> <input type='file'> -->
                     <button id='announcement-submit'> Submit </button>
+                    <button onclick="window.location.reload()">Cancel</button>
                 </fieldset>
             </div>
         </div>
