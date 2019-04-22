@@ -211,12 +211,14 @@ function getAnnouncements3(){
 
 //Queue display details
 function peopleWaiting(){
+  //retrieving the Queue in local storage
   let total = JSON.parse(localStorage.getItem("currentQueue"))
   if(total.length == 1){
     document.getElementById("peopleRemaining").innerHTML = "There is <u><strong>" + total.length + "</strong></u> person left in the queue"
   } else {
     document.getElementById("peopleRemaining").innerHTML = "There are <u><strong>" + total.length + "</strong></u> people left in the queue"
   }
+  //displays "Next Up"
   document.getElementById("current").innerHTML = "#" + total[0].posistion;
 }
 
