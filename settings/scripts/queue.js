@@ -24,7 +24,6 @@ function toggleQueue() {
                 this.innerHTML = '------'
             }
         });
-
     } else {
         if (confirm('Are you sure you want to disable queue?')) {
             toggle.innerHTML = 'Enable';
@@ -50,8 +49,8 @@ function getCurrentQueue() {
     return queue;
 }
 
-
-
+//TODO: When student is removed update Notify Prompt
+//TODO: Stop removal of duplicate students
 
 function loadQueue() {
     let queueElement = document.querySelector('ol');

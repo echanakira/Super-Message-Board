@@ -67,6 +67,9 @@ function addAvailableTime() {
         localStorage.setItem("availability", JSON.stringify(weekJSON));
     }
     removeTime();
+
+    alert('Time Added');
+    window.location.reload();
 }
 
 function removeTime() {
