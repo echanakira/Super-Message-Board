@@ -159,6 +159,7 @@ function showDivs(n) {
 
 function getOH(){
   let officeHours = JSON.parse(localStorage.getItem("availability"));
+  document.getElementById("todayOfficeHourButton").innerHTML = queueDay();
   document.getElementById("mondayValue").innerHTML = noOH(officeHours.Monday);
   document.getElementById("tuesdayValue").innerHTML = noOH(officeHours.Tuesday);
   document.getElementById("wednesdayValue").innerHTML = noOH(officeHours.Wedneday);
@@ -211,8 +212,53 @@ function getAnnouncements3(){
 //Queue display details
 function peopleWaiting(){
   let total = JSON.parse(localStorage.getItem("currentQueue"))
-  
-  document.getElementById("peopleRemaining").innerHTML = total.length
+  if(total.length == 1){
+    document.getElementById("peopleRemaining").innerHTML = "There is <u><strong>" + total.length + "</strong></u> person left in the queue"
+  } else {
+    document.getElementById("peopleRemaining").innerHTML = "There are <u><strong>" + total.length + "</strong></u> people left in the queue"
+  }
+  document.getElementById("current").innerHTML = "#" + total[0].posistion;
 }
 
 peopleWaiting()
+
+function queueDay(){
+  let officeHours = JSON.parse(localStorage.getItem("availability"));
+  var d = new Date();
+  var n = d.getDay()
+  if (n == 0){
+    return "No Office Hours Today"
+  } else if (n == 1){
+    if (noOH(officeHours.Monday)== "N/A"){
+      return "No Office Hours Today"
+    } else {
+      return noOH(officeHours.Monday)
+    }
+  } else if (n == 2){
+    if (noOH(officeHours.Tuesday)== "N/A"){
+      return "No Office Hours Today"
+    } else {
+      return noOH(officeHours.Tuesday)
+    }
+  } else if (n == 3){
+    if (noOH(officeHours.Wedneday)== "N/A"){
+      return "No Office Hours Today"
+    } else {
+      return noOH(officeHours.Wedneday)
+    }
+  } else if (n == 4){
+    if (noOH(officeHours.Thursday)== "N/A"){
+      return "No Office Hours Today"
+    } else {
+      return noOH(officeHours.Thursday)
+    }
+  } else if (n == 5){
+    if (noOH(officeHours.Friday)== "N/A"){
+      return "No Office Hours Today"
+    } else {
+      return noOH(officeHours.Friday)
+    }
+  } else if (n == 6){
+    return "No Office Hours Today"
+  }
+}

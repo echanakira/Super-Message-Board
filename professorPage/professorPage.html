@@ -87,7 +87,7 @@
                 <font size="5">Todays Office Hours</font>
             </strong></legend>
 
-        <button class="collapsible" id="button">4:00pm - 6:00pm</button>
+        <button class="collapsible" id="button"><span id ="todayOfficeHourButton"></span></button>
     </fieldset>
 
 
@@ -132,18 +132,18 @@
 
     <fieldset class="queue">
         <legend><strong>
-                <font size="5">Queue</font>
+                <font size="6">Queue</font>
             </strong></legend>
         <button id="button" onclick="if(enabledQ()){location.href = '../queue/queueform.html';}else{alert('Queue Not Available At This Time, Please Refer to Professors Availablity');}">ADD TO QUEUE</button>'
         <label>
-            <font size="6"><strong>Queue: </strong></font>
+            <font size="6"><strong>Next up: </strong></font>
         </label>
         <label id="queueNumber">
-            <font size="6">#14</font>
+            <font size="6"><span id="current"></span></font>
         </label>
         <br>
         <label id="queueUpdate">
-            <font size="3">There is/are <u> <font size="5"><span id="peopleRemaining">X</span></font></u> person/people waiting</font>
+            <font size="5"><span id="peopleRemaining">X</span></font> 
         </label>
     </fieldset>
 
