@@ -46,7 +46,7 @@ function addAvailableTime() {
         end = end.substr(1);
     }
     document.getElementById(days[day - 1]).innerHTML += "<li>" + start + AMorPMStart + " - " + end + AMorPMEnd + "<span class=\"rmButton\"> &#x2716;</span></li>";
-    // add this time into localStorage so that Hamza's page can access it. 
+    // add this time into localStorage so that Hamza's page can access it.
     var temp, timeJSON;
     var weekJSON = {
         "Monday": [],
@@ -82,12 +82,14 @@ function removeTime() {
                     dayArr = time[days[i]];
                     if (dayArr != undefined) {
                         for (j = 0; j < dayArr.length; j++) {
+
                             if (dayArr[j] != undefined) {
                                 if (dayArr[j].localeCompare(timeRm) == 0) {
-                                    dayArr[j] = undefined;
+                                    dayArr.splice(j,1);
                                     break;
                                 }
                             }
+
                         }
                         if (dayArr[0] == null) {
                             dayArr = [];

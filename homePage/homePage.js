@@ -67,9 +67,11 @@ function normalTime2(minutes){
 }
 
 function setupNav(){
-  let office = document.querySelector('#nav-office-number');
-  console.log(office);
-  office.innerHTML = localStorage.getItem('officeNumber');
+  let office1 = document.querySelector('#nav-office-number1');
+  let office2 = document.querySelector('#nav-office-number2');
+  
+  office1.innerHTML = localStorage.getItem('officeNumber');
+  office2.innerHTML = localStorage.getItem('officeNumber');
 }
 
 
