@@ -188,6 +188,17 @@ function getAnnouncements1(){
   let officeHours = JSON.parse(localStorage.getItem("announcements"));
   console.log(officeHours[0].photo)
   document.getElementById("img1").src =  officeHours[0].photo;
+<<<<<<< HEAD
+=======
+}
+function getAnnouncements2(){
+  let officeHours = JSON.parse(localStorage.getItem("announcements"));
+  document.getElementById("img2").src = officeHours[1].photo
+}
+function getAnnouncements3(){
+  let officeHours = JSON.parse(localStorage.getItem("announcements"));
+  document.getElementById("img3").src = officeHours[2].photo
+>>>>>>> 301887326e421afcd29ae9a2713b2ea3113efe7e
 }
 function getAnnouncements2(){
   let officeHours = JSON.parse(localStorage.getItem("announcements"));
