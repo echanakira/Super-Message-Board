@@ -1,4 +1,4 @@
-body{
+body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -7,7 +7,8 @@ body{
 }
 
 button {
-  background-color: #305A72; /* Green */
+  background-color: #305A72;
+  /* Green */
   border: none;
   color: white;
   padding: 10px 25px;
@@ -17,8 +18,8 @@ button {
   font-size: 16px;
 }
 
-button:hover{
-  opacity:0.85;
+button:hover {
+  opacity: 0.85;
   transition: 0.05s ease-in-out;
 }
 
@@ -42,27 +43,27 @@ button:hover{
   box-sizing: border-box;
 }
 
-#in-office{
-  width:10% !important;
+#in-office {
+  width: 10% !important;
 }
 
-#out-office{
-  width:10% !important;
+#out-office {
+  width: 10% !important;
   /* float:left; */
 }
 
-#input-container{
+#input-container {
   text-align: center;
 }
 
 
 /******************* Queue Modal *******************/
 
-#queue-modal h3{
+#queue-modal h3 {
   text-align: center;
 }
 
-ol{
+ol {
   padding: 5px;
 }
 
@@ -80,12 +81,12 @@ ol li {
   margin-bottom: 2px;
 }
 
-ol li span{
-  float:right;
+ol li span {
+  float: right;
   color: #aaaaaa;
 }
 
-#notify-queue{
+#notify-queue {
   margin-bottom: 20px;
 }
 
@@ -95,23 +96,40 @@ ol li span{
 
 /******************* Availability Modal *******************/
 
-#availability-modal h2{
+#availability-modal h2 {
   text-align: center;
 }
 
-#availability-modal h3{
+#availability-modal h3 {
   text-align: center;
 }
 
 
-#availability-modal li span{
-  float:right;
+#availability-modal li span {
+  float: right;
   color: #aaaaaa;
 }
 
-#availability-modal li span:hover{
-  float:right;
+#availability-modal li span:hover {
+  float: right;
   color: black;
+}
+
+/******************* Announcements Modal *******************/
+
+ol li span:hover {
+  color: black;
+}
+#announcements-modal h2{
+  text-align: center;
+}
+
+#announcements-container h3{
+  text-align: center;
+}
+
+#option-container {
+  margin: 0;
 }
 
 /******************* Themes Modal *******************/
@@ -190,7 +208,7 @@ ul li {
   padding: 12px;
   text-decoration: none;
   font-size: 18px;
-  color: black;
+  /* color: black; */
   display: block;
   position: relative;
 }

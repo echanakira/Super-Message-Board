@@ -6,6 +6,7 @@ window.onload = function () {
     setInterval(DateDisplay,1000);
     showDivs(slideIndex);
     setupNav();
+    setupThemeHome();
 }
 
 
@@ -70,8 +71,35 @@ function setupNav(){
   let office1 = document.querySelector('#nav-office-number1');
   let office2 = document.querySelector('#nav-office-number2');
   
-  office1.innerHTML = localStorage.getItem('officeNumber');
-  office2.innerHTML = localStorage.getItem('officeNumber');
+  office1.innerHTML = JSON.parse(localStorage.getItem('officeNumber'));
+  office2.innerHTML = JSON.parse(localStorage.getItem('officeNumber'));
+
+  let navNam = document.querySelector('#prof-name');
+  navNam.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s Page &rarr;`;
+
+}
+
+//Function called to set theme onwindow load or when theme is changed;
+//themes[nav,bg,text,secondaryBG, modalBG, navText, type]
+function setupThemeHome() {
+  console.log('Setting Up Theme')
+    let nav = document.querySelector('.navbar');
+    let body = document.querySelector('body');
+    let themes = JSON.parse(localStorage.getItem('themes'));
+
+    let marquee = document.querySelector('marquee');
+    let marqueeFont = document.querySelector('marquee font');
+
+    /* Consistent Across All Pages */
+    nav.style.backgroundColor = themes[0];
+    nav.style.color = themes[3];
+    body.style.backgroundColor = themes[1];
+    body.style.color = themes[2];
+
+    /* Page Specific */
+    marquee.style.backgroundColor = themes[1];
+    marqueeFont.style.color = themes[2];
+
 }
 
 

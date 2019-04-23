@@ -16,6 +16,7 @@ function toggleQueue() {
         notify.innerHTML = 'Notify ' + queue[0]['name'];
 
         notify.addEventListener('click', function () {
+            let name = queue[0]['name'];
             nextInQueue();
             queue = loadQueue();
             if(queue.length > 0){
@@ -23,8 +24,8 @@ function toggleQueue() {
             }else{
                 this.innerHTML = '------'
             }
+            alert(`${name} has been notified.`)
         });
-
     } else {
         if (confirm('Are you sure you want to disable queue?')) {
             toggle.innerHTML = 'Enable';
@@ -38,11 +39,18 @@ function toggleQueue() {
 
 
 function nextInQueue() {
-    getCurrentQueue();
-    let nextStudent = queue.shift();
-    localStorage.setItem('currentQueue', JSON.stringify(queue))
+        getCurrentQueue();
+    if(queue){
+    var nextStudent = queue[0];
     return nextStudent;
-}
+    }else{
+    //null error 
+    alert(" no more students in queue");
+    return null;
+    }
+        
+        
+    }
 
 function getCurrentQueue() {
     let queue = JSON.parse(localStorage.getItem('currentQueue'))
@@ -50,8 +58,8 @@ function getCurrentQueue() {
     return queue;
 }
 
-
-
+//TODO: When student is removed update Notify Prompt
+//TODO: Stop removal of duplicate students
 
 function loadQueue() {
     let queueElement = document.querySelector('ol');
@@ -69,7 +77,14 @@ function loadQueue() {
         closeBtn.addEventListener('click', function () {
             console.log(this.parentElement.textContent)
             let index = findStudent(this.parentElement.textContent, queue);
+            console.log(index)
             queue = removeFromLocalStorage(index, queue);
+            let notify = document.querySelector('#notify-queue');
+            if(queue.length > 0){
+                notify.innerHTML = 'Notify ' + queue[0]['name']
+            }else{
+                notify.innerHTML = '------'
+            }
             this.parentElement.remove();
         });
         li.innerHTML = student['name'];

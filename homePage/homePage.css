@@ -1,8 +1,12 @@
 
+#irb, .classroom,#bottom, h1 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 fieldset {
   border-radius: 15px;
 }
+
 /* Slideshow container */
 
 .slideshow-container {
@@ -19,15 +23,13 @@ fieldset {
   display: none;
 }
 
-
-
-
 img {
   border-radius: 10%;
 }
 
 .slideButton {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
+  /* Green */
   border: none;
   color: white;
   padding: 10px 20px;
@@ -36,7 +38,8 @@ img {
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
   transition-duration: 0.4s;
   cursor: pointer;
 }
@@ -46,29 +49,32 @@ img {
   color: black;
 }
 
-.slideButton:hover {background-color: #e7e7e7;}
+.slideButton:hover {
+  background-color: #e7e7e7;
+}
 
 
 /*  The next arrow button on the slideshow
     Location: Middle Left of Announcements*/
 
-    .next {
-      position: absolute;
-      top: 50%;
-      left: 90%;
-    }
-    
-    /*  The previous arrow button on the slideshow
+.next {
+  position: absolute;
+  top: 50%;
+  left: 90%;
+}
+
+/*  The previous arrow button on the slideshow
         Location: Middle right of Announcements*/
-    
-    .prev {
-      position: absolute;
-      top: 50%;
-      left: 2%;
-    }
+
+.prev {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+}
 
 
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -83,7 +89,8 @@ img {
   user-select: none;
 }
 
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
 
@@ -95,11 +102,21 @@ img {
 /* "Classroom" & "Todays Date" fieldset 
     Location:  top left */
 
-    .classroom {
-      position: absolute;
-      top: 2%;
-      box-sizing: border-box;
-      float: left;
-    }
-    
-    /*///////////////////////////////////////////////////////////////////////////////////////////*/
+.classroom {
+  /* position: absolute; */
+  top: 2%;
+  box-sizing: border-box;
+  float: left;
+  width:40%;
+  left:20%;
+}
+
+
+#irb{
+  display:block;
+  margin-top: 10px;
+  /* float:right; */
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/

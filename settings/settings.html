@@ -44,6 +44,7 @@
                                 <input type="number" id='minutes' maxlength="4" size="4">Minute(s)
                             </fieldset> <br />
                             <button id='submit-office'> Submit </button>
+                            <button onclick="window.location.reload()">Cancel</button>
                         </fieldset>
                     </form>
             </div>
@@ -65,21 +66,14 @@
         <div class='modal' id='settings-modal'>
             <div class='modal-content'>
                 <span class='close'>&times;</span>
+                <h2> Manage Themes</h2>
                 <fieldset>
                     <legend>Select Theme</legend> <br />
-<<<<<<< HEAD
-
-                    <input type='radio' name="themeradio" value='theme-1' checked> Theme #1 </input> <br />
-                    <input type='radio' name="themeradio" value='theme-2' />Theme #2 </input><br />
-                    <input type='radio' name="themeradio" value='theme-3' />Theme #3 </input> <br />
-                    <input type='submit'>
+                    <input class='themes' type='radio' name="themeradio" value='normal' checked>Normal Theme </input> <br />
+                    <input class='themes' type='radio' name="themeradio" value='dark' />Dark Theme </input><br />
+                    <input class='themes' type='radio' name="themeradio" value='umd' />UMD Theme </input> <br />
+                    <button id='theme-submit'> Submit </button>
                     <button onclick="window.location.reload()">Cancel</button>
-=======
-                    <input type='radio' name='theme' value='theme-1' checked> Theme #1 </input> <br />
-                    <input type='radio' name='theme' value='theme-2' />Theme #2 </input><br />
-                    <input type='radio' name='theme' 2value='theme-3' />Theme #3 </input> <br />
-                    <button id='theme-submit'> Button </button>
->>>>>>> aa28d7d3587e7667427304874074c56c675a61b7
                 </fieldset>
             </div>
         </div>
@@ -110,7 +104,8 @@
                     </ul>
                     <form>
                         <fieldset>
-                            <legend></legend><h3> Add New Time</h3>
+                            <legend></legend>
+                            <h3> Add New Time</h3>
                             <label>Day</label>
                             <br>
                             <select id="dayOfWeek">
@@ -120,7 +115,7 @@
                                 <option value="4">Thursday</option>
                                 <option value="5">Friday</option>
                                 <option value="6">Saturday</option>
-                                <option value="7">Sunday</option>
+                                <option value="7">olSunday</option>
                             </select>
                             <h4> Start Time </h4>
                             <input type='time' id="startTime"> <br />
@@ -129,12 +124,8 @@
                         </fieldset>
 
                     </form>
-<<<<<<< HEAD
-                    <input type='submit' onclick="addAvailableTime();" id='submitTimes'>
-                    <button onclick="window.location.reload()">Cancel</button>
-=======
                     <button onclick="addAvailableTime();" id='submitTimes'> Submit </button>
->>>>>>> aa28d7d3587e7667427304874074c56c675a61b7
+                    <button onclick="window.location.reload()">Cancel</button>
                 </div>
             </div>
         </div>
@@ -142,8 +133,9 @@
         <div class='modal' id='announcements-modal'>
             <div class='modal-content'>
                 <span class='close'>&times;</span>
-                <h3>Manage Announcements </h3> <br />
+                <h2>Manage Announcements </h2> <br />
                 <div id='announcements-container'>
+                    <h3> Current Announcements</h3>
                     <ol id='annoucement-titles'>
                     </ol>
                 </div>
@@ -153,10 +145,12 @@
                     <textarea id='announcement-description' rows="4" cols="50" placeholder="Description"></textarea>
                     <br />
                     <h3> Select Photo</h3>
-                    <input name="photoradio" id="option-1" type='radio' value='theme-1' />Photo #1 </input>
-                    <input name="photoradio" id="option-2" type='radio' value='theme-2' />Photo #2 </input>
-                    <input name="photoradio" id="option-3" type='radio' value='theme-3' />Photo #3 </input>
-                    <input name="photoradio" id="option-4" type='radio' value='theme-4' />Photo #4 </input> <br />
+                    <div id='option-container'>
+                        <input id="option-1" type='radio' name='photo' value='theme-1' />Photo #1 </input>
+                        <input id="option-2" type='radio' name='photo' value='theme-2' />Photo #2 </input> <br />
+                        <input id="option-3" type='radio' name='photo' value='theme-3' />Photo #3 </input>
+                        <input id="option-4" type='radio' name='photo' value='theme-4' />Photo #4 </input> <br />
+                    </div>
                     <!-- <p> Upload a photo</p> <input type='file'> -->
                     <button id='announcement-submit'> Submit </button>
                     <button onclick="window.location.reload()">Cancel</button>
@@ -172,7 +166,7 @@
                 <font size="4">IRB Homepage</font>
             </a>
             <a class="backButton" onclick="location.href = '../professorPage/professorPage.html';">
-                <font size="4">Professor Golub's Page</font>
+                <font size="4" id='prof-name'>Professor's Page</font>
             </a>
             <c class="icon"><img id="icon" src="../homePage/icon.png" onclick="location.href = '../settings/settings.html';" width="50" height="50"></c>
         </div>
@@ -181,6 +175,7 @@
 
 </body>
 
+<script src="scripts/themes.js"></script>
 <script src="scripts/announcements.js"></script>
 <script src="scripts/queue.js"></script>
 <script src="scripts/availability.js"></script>

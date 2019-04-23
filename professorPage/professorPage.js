@@ -5,13 +5,23 @@
 window.onload = function () {
   setInterval(DateDisplay,1000);
   showDivs(slideIndex);
-  status();
+  //status();
   ohButton();
   getOH();
   setupNav();
   getAnnouncements1();
   getAnnouncements2();
   getAnnouncements3();
+  setupThemeProfessor();
+  setupProfessorName();
+
+}
+status();
+
+function setupOffice(){
+  let name = document.querySelector('#name');
+  name.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s
+  Office`;
 }
 
 //the orginal slideIndex
@@ -45,7 +55,14 @@ function status() {
   let here = JSON.parse(localStorage.getItem('officeStatus'))
   
   if (here.status == "false") {
-    outOfOffice(parseInt(here.hours), parseInt(here.minutes), 0); // this takes parameters (hours,minutes,seconds)
+    if (here.hours == ""){
+      here.hours = 0
+    }
+    if (here.minutes == ""){
+      here.minutes = 0
+    }
+   
+    outOfOffice(parseInt(here.hours), parseInt(here.minutes), parseInt(here.seconds)); // this takes parameters (hours,minutes,seconds)
     document.getElementById("status").style.backgroundColor = "rgb(201, 0, 0)"
   } else {
     inOffice();
@@ -62,7 +79,7 @@ function inOffice() {
 //sets up countdown timer
 function outOfOffice(hours, mins, secs) {
   var countDownDate = new Date();
-
+  
   countDownDate.setHours(hours + countDownDate.getHours());
   countDownDate.setMinutes(mins + countDownDate.getMinutes());
   countDownDate.setSeconds(secs + 1 + countDownDate.getSeconds());
@@ -88,6 +105,14 @@ function outOfOffice(hours, mins, secs) {
     // Display the result in the element with id="demo"
     document.getElementById("statusValue").innerHTML = + hours + "h "
       + minutes + "m " + seconds + "s ";
+      let statusObj;
+      statusObj = {
+        status: 'false',
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds,
+    }
+    localStorage.setItem('officeStatus', JSON.stringify(statusObj));
 
     // If the count down is finished, write some text
     if (distance < 0) {
@@ -179,8 +204,9 @@ function setupNav(){
   let office1 = document.querySelector('#nav-office-number1');
   let office2 = document.querySelector('#nav-office-number2');
 
-  office1.innerHTML = localStorage.getItem('officeNumber');
-  office2.innerHTML = localStorage.getItem('officeNumber');
+  office1.innerHTML =  JSON.parse(localStorage.getItem('officeNumber'));
+  office2.innerHTML =  JSON.parse(localStorage.getItem('officeNumber'));
+  
 }
 
 
@@ -262,3 +288,65 @@ function queueDay(){
     return "No Office Hours Today"
   }
 }
+
+//Function called to set theme onwindow load or when theme is changed;
+//themes[nav,bg,text,secondaryBG, modalBG, navText, type]
+function setupThemeProfessor() {
+  console.log('Setting Up Theme')
+    let nav = document.querySelector('.navbar');
+    let body = document.querySelector('body');
+    let themes = JSON.parse(localStorage.getItem('themes'));
+
+    let buttons = document.querySelectorAll('#button');
+    let weekday = document.querySelector('.weekdays');
+    let marquee = document.querySelector('marquee');
+    let marqueeFont = document.querySelector('marquee font');
+    console.log(marqueeFont);
+
+    /* Consistent Across All Pages */
+    nav.style.backgroundColor = themes[0];
+    nav.style.color = themes[3];
+    body.style.backgroundColor = themes[1];
+    body.style.color = themes[2];
+
+    /* Page Specific */
+    marquee.style.backgroundColor = themes[1];
+    marqueeFont.style.color = themes[2];
+
+    if(themes[6] == 'dark'){
+
+      buttons.forEach(btn => {
+        btn.classList.remove('umd-button');
+        btn.classList.add('dark-button');
+      })
+      weekday.classList.remove("umd-weekdays")
+
+    }else if(themes[6] == 'umd'){
+
+      buttons.forEach(btn => {
+        btn.classList.remove('dark-button');
+        btn.classList.add('umd-button');
+      })
+      weekday.classList.add("umd-weekdays")
+
+      
+    }else{
+      buttons.forEach(btn => {
+        btn.classList.remove('dark-button');
+        btn.classList.remove('umd-button');
+      })
+      weekday.classList.remove("umd-weekdays")
+
+    }
+}
+
+function setupProfessorName(){
+  let name = document.querySelector("#name");
+  name.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s Office`;
+}
+
+
+
+    
+  
+
