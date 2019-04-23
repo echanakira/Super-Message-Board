@@ -100,6 +100,7 @@ function submitOfficeInfo() {
             status: 'true',
             hours: null,
             minutes: null,
+            seconds: null
         }
         localStorage.setItem('officeStatus', JSON.stringify(statusObj));
     } else {
@@ -109,6 +110,7 @@ function submitOfficeInfo() {
             status: 'false',
             hours: newHours.value,
             minutes: newMinutes.value,
+            seconds: 0,
         }
         localStorage.setItem('officeStatus', JSON.stringify(statusObj));
     }

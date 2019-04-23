@@ -39,11 +39,18 @@ function toggleQueue() {
 
 
 function nextInQueue() {
-    getCurrentQueue();
-    let nextStudent = queue.shift();
-    localStorage.setItem('currentQueue', JSON.stringify(queue))
+        getCurrentQueue();
+    if(queue){
+    var nextStudent = queue[0];
     return nextStudent;
-}
+    }else{
+    //null error 
+    alert(" no more students in queue");
+    return null;
+    }
+        
+        
+    }
 
 function getCurrentQueue() {
     let queue = JSON.parse(localStorage.getItem('currentQueue'))
