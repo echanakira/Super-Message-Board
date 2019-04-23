@@ -103,12 +103,12 @@ img {
     Location:  top left */
 
 .classroom {
-  /* position: absolute; */
+  position: absolute; 
   top: 2%;
   box-sizing: border-box;
   float: left;
   width:40%;
-  left:20%;
+  left:0%;
 }
 
 
