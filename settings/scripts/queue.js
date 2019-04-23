@@ -16,6 +16,7 @@ function toggleQueue() {
         notify.innerHTML = 'Notify ' + queue[0]['name'];
 
         notify.addEventListener('click', function () {
+            let name = queue[0]['name'];
             nextInQueue();
             queue = loadQueue();
             if(queue.length > 0){
@@ -23,6 +24,7 @@ function toggleQueue() {
             }else{
                 this.innerHTML = '------'
             }
+            alert(`${name} has been notified.`)
         });
     } else {
         if (confirm('Are you sure you want to disable queue?')) {
@@ -68,7 +70,14 @@ function loadQueue() {
         closeBtn.addEventListener('click', function () {
             console.log(this.parentElement.textContent)
             let index = findStudent(this.parentElement.textContent, queue);
+            console.log(index)
             queue = removeFromLocalStorage(index, queue);
+            let notify = document.querySelector('#notify-queue');
+            if(queue.length > 0){
+                notify.innerHTML = 'Notify ' + queue[0]['name']
+            }else{
+                notify.innerHTML = '------'
+            }
             this.parentElement.remove();
         });
         li.innerHTML = student['name'];

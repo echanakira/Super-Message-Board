@@ -33,7 +33,6 @@ function setupAnnouncements() {
         closeBtn.classList.add('remove')
         closeBtn.innerHTML = '&#x2716;';
         closeBtn.addEventListener('click', function () {
-            //TODO: Fix Announcement Deletion
             let index = findTitle(this.parentElement.textContent, currentAnnouncements);
             queue = removeAnnFromLocalStorage(index, currentAnnouncements);
             this.parentElement.remove();

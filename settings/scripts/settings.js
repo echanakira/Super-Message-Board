@@ -16,7 +16,7 @@ let currentStudent;
 let numInQueue = 0;
 
 window.onload = function () {
-    resetStorage();
+    // resetStorage();
     setup();
 }
 
@@ -37,7 +37,6 @@ function resetStorageupdated() {
     // localStorage.setItem('officeStatus', JSON.stringify({status:true, time:null}))
 }
 
-//TODO: Setup nav
 /******************** HTML STEUP AND MANIPULATION ********************/
 function setup() {
     // console.log('Setting up')
@@ -186,6 +185,10 @@ function setupProfessorInfo() {
     let office = document.querySelector('#nav-office-number');
     console.log(office);
     office.innerHTML = JSON.parse(localStorage.getItem('officeNumber'));
+
+    let navNam = document.querySelector('#prof-name');
+    navNam.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s Page`;
+
 }
 
 function refreshPage() {
