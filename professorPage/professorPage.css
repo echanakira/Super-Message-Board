@@ -32,18 +32,18 @@ fieldset {
 /*The div container for the weekly office hours once clicked.
   Location: Middle of the middle section. Between "office hour" button and "queue" button*/
 
-.content {
-  position: absolute;
-  left: 2%;
-  bottom: 71%;
-  width: 50%;
-  text-align: center;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-  border-radius: 15px;
-}
 
+  .content {
+    position: absolute;
+    left: 2%;
+    bottom: 70%;
+    width: 50%;
+    text-align: center;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    border-radius: 15px;
+  }
 /*List basic properties*/
 
 ul {
@@ -54,8 +54,8 @@ ul {
 
 .weekdays {
   margin: 0;
-
-  *background-color: rgb(68, 137, 158);
+  padding: 0px 0;
+  background-color: #f1f1f1;
 
 }
 
@@ -373,17 +373,13 @@ img {
 /*///////////////////////////////////////////////////////////////////////////////////////////*/
 
 
-<<<<<<< HEAD
+
 /* Style the tab */
 .tab {
   position: absolute;
   left: 18%;
   top:0%;
-=======
-<<<<<<< HEAD
-/* Style the tab */
-.tab {
->>>>>>> c9123a748e9a68685aabf65c49250b7a6f414b7b
+
   width: 350px;
   overflow: hidden;
   border: 1px solid #ccc;
@@ -393,7 +389,7 @@ img {
 /* Style the tab content */
 .tabcontent {
   display: none;
-  padding: 6px 6px;
+  padding: 6px 0px;
   border: 1px solid #ccc;
   border-top: none;
 }

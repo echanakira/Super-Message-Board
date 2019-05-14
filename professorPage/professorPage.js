@@ -195,11 +195,12 @@ function showDivs(n) {
 
 function getOH(){
   let officeHours = JSON.parse(localStorage.getItem("availability"));
+  
   if(officeHours == null){
     var weekHourstemp = {
       "Monday": [],
       "Tuesday": [],
-      "Wedneday": [],
+      "Wednesday": [],
       "Thursday": [],
       "Friday": [],
       "Saturday": [],
@@ -207,17 +208,18 @@ function getOH(){
     }
     
     localStorage.setItem("availability", JSON.stringify(weekHourstemp))
-  } else {
-
+  } else {  
+    console.log("here")
   document.getElementById("mondayValue").innerHTML = noOH(officeHours.Monday);
   document.getElementById("tuesdayValue").innerHTML = noOH(officeHours.Tuesday);
-  document.getElementById("wednesdayValue").innerHTML = noOH(officeHours.Wedneday);
+  document.getElementById("wednesdayValue").innerHTML = noOH(officeHours.Wednesday);
   document.getElementById("thursdayValue").innerHTML = noOH(officeHours.Thursday);
   document.getElementById("fridayValue").innerHTML = noOH(officeHours.Friday);
   }
 }
 
 function noOH(day){
+  
   if (day.length == 0){
     return "N/A";
   } else {
