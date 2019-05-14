@@ -192,11 +192,6 @@ function setupProfessorInfo() {
 
     let navNam = document.querySelector('#prof-name');
     navNam.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s Page`;
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 28b18cdd32085aabd08163d3f7354b9725876c63
 }
 
 function refreshPage() {

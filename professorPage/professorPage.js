@@ -168,6 +168,7 @@ function showDivs(n) {
 
 function getOH(){
   let officeHours = JSON.parse(localStorage.getItem("availability"));
+  if(officeHours == null) return;
   document.getElementById("todayOfficeHourButton").innerHTML = queueDay();
   document.getElementById("mondayValue").innerHTML = noOH(officeHours.Monday);
   document.getElementById("tuesdayValue").innerHTML = noOH(officeHours.Tuesday);
@@ -236,6 +237,7 @@ function queueDay(){
   let officeHours = JSON.parse(localStorage.getItem("availability"));
   var d = new Date();
   var n = d.getDay()
+  if(officeHours == null) return;
   if (n == 0){
     return "No Office Hours Today"
   } else if (n == 1){

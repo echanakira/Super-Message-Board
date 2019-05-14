@@ -7,9 +7,15 @@ function setupQueue() {
 
 function toggleQueue() {
     let toggle = document.querySelector('#queue-toggle');
-    let notify = document.querySelector('#notify-queue')
+    let container = document.querySelector("#queue-modal-content")
+
+    let notify = document.createElement("button");
+    notify.id = "notify-queue";
 
     if (toggle.innerHTML === 'Enable') {
+        toggle.remove();
+        container.appendChild(notify);
+        container.appendChild(toggle);
         localStorage.setItem('queueStatus', 'Enabled')
         toggle.innerHTML = 'Disable'
         let queue = loadQueue();
@@ -19,17 +25,18 @@ function toggleQueue() {
             let name = queue[0]['name'];
             nextInQueue();
             queue = loadQueue();
-            if(queue.length > 0){
+            if (queue.length > 0) {
                 this.innerHTML = 'Notify ' + queue[0]['name']
-            }else{
+            } else {
                 this.innerHTML = '------'
             }
             alert(`${name} has been notified.`)
         });
     } else {
+        let notify = document.querySelector('#notify-queue')
         if (confirm('Are you sure you want to disable queue?')) {
             toggle.innerHTML = 'Enable';
-            notify.innerHTML = '------'
+            notify.remove();
             disableQueue();
             localStorage.setItem('queueStatus', 'Disabled')
             notify.addEventListener('click', function () {});
@@ -38,16 +45,18 @@ function toggleQueue() {
 }
 
 
-function OLDnextInQueue() {
-    getCurrentQueue();
-    let nextStudent = queue.shift();
-    localStorage.setItem('currentQueue', JSON.stringify(queue))
-    return nextStudent;
-}
 function nextInQueue() {
     getCurrentQueue();
-    var nextStudent = queue[0];
-    return nextStudent;
+    if (queue) {
+        var nextStudent = queue[0];
+        return nextStudent;
+    } else {
+        //null error 
+        alert(" no more students in queue");
+        return null;
+    }
+
+
 }
 
 function getCurrentQueue() {
@@ -63,7 +72,7 @@ function loadQueue() {
     let queueElement = document.querySelector('ol');
     queueElement.innerHTML = "";
     let queue = getCurrentQueue();
-    if(queue == null){
+    if (queue == null) {
         return;
     }
 
@@ -73,6 +82,7 @@ function loadQueue() {
         let li = document.createElement('li');
         let closeBtn = document.createElement('span')
         let collapsible = document.createElement("button");
+        collapsible.id = "student-collapse"
 
         closeBtn.classList.add('remove')
         closeBtn.innerHTML = '&#x2716;';
@@ -82,27 +92,40 @@ function loadQueue() {
             console.log(index)
             queue = removeFromLocalStorage(index, queue);
             let notify = document.querySelector('#notify-queue');
-            if(queue.length > 0){
+            if (queue.length > 0) {
                 notify.innerHTML = 'Notify ' + queue[0]['name']
-            }else{
+            } else {
                 notify.innerHTML = '------'
             }
             this.parentElement.remove();
         });
 
-        collapsible.classList.add('collapsible');
-        collapsible.innerHTML = "Open";
         collapsible.addEventListener('click', function(){
-            this.classList.add('active-collapse');
-            let content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-              } else {
-                content.style.display = "block";
-              }
+            let collapse = this;
+            let message = document.querySelector(".message");
+            console.log(queue[index])
+
+            if(message.style.display == 'block'){
+                console.log("In If");
+                message.innerHTML = queue[index].msg;
+                console.log(queue[index].msg)
+                collapse.innerHTML = "Show";
+                collapse.style.background = "#305A72";
+                message.style.content  = 'none';
+                message.innerHTML = "";
+            }else{
+                console.log('In else');
+                console.log(message.style.display)
+                message.innerHTML = queue[index].msg;
+                collapse.innerHTML = "Hide";
+                collapse.style.background = 'DarkRed';
+                message.style.display  = 'block';
+            }
+
         })
+
+        collapsible.innerHTML = "Show";
         li.innerHTML = student['name'];
-      
 
         li.appendChild(closeBtn)
         li.appendChild(collapsible);
@@ -111,7 +134,7 @@ function loadQueue() {
     return queue;
 }
 
-/* Function that finds a student in the queue
+/* Function that finds a student in the queue 
  * Student name has a special character which needs to be removed
  */
 function findStudent(studentName, queue) {
