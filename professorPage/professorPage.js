@@ -352,6 +352,10 @@ function setupProfessorName(){
 }
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c9123a748e9a68685aabf65c49250b7a6f414b7b
 function departmentSwitcher(){
   document.getElementById("img1").src = '../settings/assets/Dept1.png'
   document.getElementById("img2").src = '../settings/assets/Dept2.png'
@@ -365,6 +369,11 @@ function professorSwitcher(){
 }
 
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> ca2dab44cd39cc1b0af402a836c855adadcbeeac
+>>>>>>> c9123a748e9a68685aabf65c49250b7a6f414b7b
 
     
   

@@ -24,7 +24,25 @@ function loadAnnouncements() {
         announcemnets = [];
     }
     return announcemnets;
+<<<<<<< HEAD
 
+=======
+=======
+<<<<<<< HEAD
+    let announcemnets = JSON.parse(localStorage.getItem('announcements'))
+    if (announcemnets == null){
+        announcemnets = [];
+    }
+    return announcemnets;
+=======
+    let announcements = JSON.parse(localStorage.getItem('announcements'))
+    if(!announcements){
+      announcements=[];
+    }
+    return announcements;
+>>>>>>> 28b18cdd32085aabd08163d3f7354b9725876c63
+>>>>>>> ca2dab44cd39cc1b0af402a836c855adadcbeeac
+>>>>>>> c9123a748e9a68685aabf65c49250b7a6f414b7b
 }
 
 function setupAnnouncements() {

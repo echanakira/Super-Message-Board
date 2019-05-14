@@ -90,7 +90,10 @@ function addAvailableTime() {
     if (localStorage.getItem("availability") != null) {
         temp = localStorage.getItem("availability");
         timeJSON = JSON.parse(temp);
+<<<<<<< HEAD
         console.log(timeJSON)
+=======
+>>>>>>> c9123a748e9a68685aabf65c49250b7a6f414b7b
         timeJSON[days[day - 1]].push(start + AMorPMStart + " - " + end + AMorPMEnd + "\n");
         localStorage.setItem("availability", JSON.stringify(timeJSON));
     } else {
