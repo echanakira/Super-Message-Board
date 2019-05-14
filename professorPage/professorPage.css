@@ -36,7 +36,7 @@ fieldset {
   position: absolute;
   left: 2%;
   bottom: 70%;
-  width: 37%;
+  width: 60%;
   text-align: center;
   display: none;
   overflow: hidden;
@@ -55,16 +55,48 @@ ul {
 .weekdays {
   margin: 0;
   padding: 0px 0;
-  background-color: rgb(68, 137, 158);
+  *background-color: rgb(68, 137, 158);
 }
 
 .umd-weekdays{
-  background-color: red !important;
+  background-color: rgb(255, 0, 0) !important;
 }
 
 /*The actual "Mo Tu We Th Fr" labels*/
 
-.weekdays li {
+
+#Mo{
+  background-color: rgb(0, 99, 129);
+  display: inline-block;
+  width: 19%;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  
+ 
+}
+#Tu{
+  background-color: rgb(0, 99, 129);
+  display: inline-block;
+  width: 19%;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+#We{
+  background-color: rgb(0, 99, 129);
+  display: inline-block;
+  width: 19%;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+#Th{
+  background-color: rgb(0, 99, 129);
+  display: inline-block;
+  width: 19%;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+#Fr{
+  background-color: rgb(0, 99, 129);
   display: inline-block;
   width: 19%;
   color: rgb(255, 255, 255);
@@ -74,20 +106,61 @@ ul {
 /*Office hour day section*/
 
 .days {
-  padding: 0px 0;
+  padding: 10px 0;
   background: #eee;
   margin: 0;
 }
 
 /*Actual content in the days*/
 
-.days li {
+
+#MoContain{
   list-style-type: none;
   display: inline-block;
   width: 19%;
   text-align: center;
   margin-bottom: 5px;
-  font-size: 12px;
+  font-size: 15px;
+  color: #777;
+  text-align: center;
+}
+#TuContain{
+  list-style-type: none;
+  display: inline-block;
+  width: 19%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: #777;
+  text-align: center;
+}
+#WeContain{
+  list-style-type: none;
+  display: inline-block;
+  width: 19%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: #777;
+  text-align: center;
+}
+#ThContain{
+  list-style-type: none;
+  display: inline-block;
+  width: 19%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: #777;
+  text-align: center;
+}
+#FrContain{
+  list-style-type: none;
+  display: inline-block;
+  width: 19%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 15px;
   color: #777;
   text-align: center;
 }
@@ -299,3 +372,46 @@ img {
 /*///////////////////////////////////////////////////////////////////////////////////////////*/
 
 
+/* Style the tab */
+.tab {
+  width: 350px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 6px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.tab button {
+  background-color: inherit;
+  float: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 5px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}

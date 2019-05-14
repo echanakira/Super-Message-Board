@@ -80,10 +80,10 @@ function addAvailableTime() {
     if (localStorage.getItem("availability") != null) {
         temp = localStorage.getItem("availability");
         timeJSON = JSON.parse(temp);
-        timeJSON[days[day - 1]].push(start + AMorPMStart + " - " + end + AMorPMEnd);
+        timeJSON[days[day - 1]].push(start + AMorPMStart + " - " + end + AMorPMEnd + "\n");
         localStorage.setItem("availability", JSON.stringify(timeJSON));
     } else {
-        weekJSON[days[day - 1]].push(start + AMorPMStart + " - " + end + AMorPMEnd);
+        weekJSON[days[day - 1]].push(start + AMorPMStart + " - " + end + AMorPMEnd+ "\n");
         localStorage.setItem("availability", JSON.stringify(weekJSON));
     }
     removeTime();
