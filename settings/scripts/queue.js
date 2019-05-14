@@ -65,12 +65,16 @@ function loadQueue() {
     let queueElement = document.querySelector('ol');
     queueElement.innerHTML = "";
     let queue = getCurrentQueue();
+    if(queue == null){
+        return;
+    }
 
     for (let index = 0; index < queue.length; index++) {
         let student = queue[index];
 
         let li = document.createElement('li');
         let closeBtn = document.createElement('span')
+        let collapsible = document.createElement("button");
 
         closeBtn.classList.add('remove')
         closeBtn.innerHTML = '&#x2716;';
@@ -87,9 +91,23 @@ function loadQueue() {
             }
             this.parentElement.remove();
         });
+
+        collapsible.classList.add('collapsible');
+        collapsible.innerHTML = "Open";
+        collapsible.addEventListener('click', function(){
+            this.classList.add('active-collapse');
+            let content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+              } else {
+                content.style.display = "block";
+              }
+        })
         li.innerHTML = student['name'];
+      
 
         li.appendChild(closeBtn)
+        li.appendChild(collapsible);
         queueElement.appendChild(li);
     }
     return queue;

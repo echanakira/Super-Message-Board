@@ -16,7 +16,7 @@ let currentStudent;
 let numInQueue = 0;
 
 window.onload = function () {
-    // resetStorage();
+    resetStorage();
     setup();
 }
 
@@ -190,7 +190,6 @@ function setupProfessorInfo() {
 
     let navNam = document.querySelector('#prof-name');
     navNam.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s Page`;
-
 }
 
 function refreshPage() {
@@ -256,7 +255,7 @@ function setupThemeSettings() {
     let nav = document.querySelector('.navbar');
     let body = document.querySelector('body');
     let themes = JSON.parse(localStorage.getItem('themes'));
-
+    if(themes==null){return}
     let li = document.querySelectorAll('ul li');
     let modal = document.querySelectorAll('.modal');
     let modalContent = document.querySelectorAll('.modal-content')

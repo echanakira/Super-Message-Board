@@ -23,6 +23,7 @@ function loadAnnouncements() {
 
 function setupAnnouncements() {
     let currentAnnouncements = loadAnnouncements();
+    if(currentAnnouncements== null){return}
     let titles = document.querySelector("#annoucement-titles");
     let submitBtn = document.querySelector('#announcement-submit');
 
