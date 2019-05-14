@@ -14,6 +14,16 @@ function loadAvailableTime() {
                 }
             }
         }
+    } else {
+        localStorage.set("availability", JSON.stringify({
+            "Monday": [],
+            "Tuesday": [],
+            "Wedneday": [],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": [],
+            "Sunday": []
+        }))
     }
     removeTime();
 }
@@ -80,6 +90,7 @@ function addAvailableTime() {
     if (localStorage.getItem("availability") != null) {
         temp = localStorage.getItem("availability");
         timeJSON = JSON.parse(temp);
+        console.log(timeJSON)
         timeJSON[days[day - 1]].push(start + AMorPMStart + " - " + end + AMorPMEnd + "\n");
         localStorage.setItem("availability", JSON.stringify(timeJSON));
     } else {
