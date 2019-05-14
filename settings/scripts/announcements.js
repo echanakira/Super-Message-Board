@@ -16,8 +16,12 @@
 //     },
 // ];
 // localStorage.setItem('announcements', JSON.stringify(announcements))
+
 function loadAnnouncements() {
     let announcemnets = JSON.parse(localStorage.getItem('announcements'))
+    if (announcemnets == null){
+        announcemnets = [];
+    }
     return announcemnets;
 }
 
