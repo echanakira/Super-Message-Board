@@ -25,12 +25,20 @@ function loadAnnouncements() {
     }
     return announcemnets;
 =======
+<<<<<<< HEAD
+    let announcemnets = JSON.parse(localStorage.getItem('announcements'))
+    if (announcemnets == null){
+        announcemnets = [];
+    }
+    return announcemnets;
+=======
     let announcements = JSON.parse(localStorage.getItem('announcements'))
     if(!announcements){
       announcements=[];
     }
     return announcements;
 >>>>>>> 28b18cdd32085aabd08163d3f7354b9725876c63
+>>>>>>> ca2dab44cd39cc1b0af402a836c855adadcbeeac
 }
 
 function setupAnnouncements() {
@@ -117,11 +125,11 @@ function addAnnouncement() {
     let newPhoto;
 
     if (document.querySelector('#option-1').checked) {
-        newPhoto = '../settings/assets/stock1.jpg'
+        newPhoto = '../settings/assets/Prof1.png'
     } else if (document.querySelector('#option-2').checked) {
-        newPhoto = '../settings/assets/stock2.png'
+        newPhoto = '../settings/assets/Prof2.png'
     } else if (document.querySelector('#option-3').checked) {
-        newPhoto = '../setting/assets/stock3.jpg'
+        newPhoto = '../settings/assets/Prof3.png'
     } else {
         newPhoto = '../settings/assets/stock5.png'
     }

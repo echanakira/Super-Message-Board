@@ -109,7 +109,7 @@ if(validateNum(phonenum)){
   addToQueue(s1);
 }
   //write
-  alert("you have been added to the queue, your number is: "+position);
+  alert("you have been added to the queue, your number is: "+position+"\n\nAn email With this number sent to your inbox!");
   return true;
 }
 var id;

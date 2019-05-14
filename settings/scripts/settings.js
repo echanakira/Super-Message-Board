@@ -82,6 +82,7 @@ function setupEvents() {
 
 //Event that updates office information
 function submitOfficeInfo() {
+
   let name = document.querySelector('#office-modal #professor-name');
   let office = document.querySelector('#office-number');
 
@@ -101,28 +102,24 @@ function submitOfficeInfo() {
 
     if (document.getElementById('in-office').checked) {
         let newTime = document.querySelector('#time');
-        console.log(newTime.value);
         statusObj = {
             status: 'true',
-<<<<<<< HEAD
             hours: null,
             minutes: null,
             seconds: null
-=======
-            time: toStandardTime(newTime.value)
->>>>>>> 28b18cdd32085aabd08163d3f7354b9725876c63
+
         }
+        console.log(JSON.stringify(statusObj))
         localStorage.setItem('officeStatus', JSON.stringify(statusObj));
     } else {
+        let newHours = document.querySelector('#hours');
+        let newMinutes = document.querySelector("#minutes")
         statusObj = {
             status: 'false',
-<<<<<<< HEAD
             hours: newHours.value,
             minutes: newMinutes.value,
             seconds: 0,
-=======
-            time: null
->>>>>>> 28b18cdd32085aabd08163d3f7354b9725876c63
+
         }
         localStorage.setItem('officeStatus', JSON.stringify(statusObj));
     }

@@ -7,6 +7,7 @@ window.onload = function () {
   showDivs(slideIndex);
   //status();
   ohButton();
+  queueDay();
   getOH();
   setupNav();
   getAnnouncements1();
@@ -205,7 +206,7 @@ function noOH(day){
   if (day.length == 0){
     return "N/A";
   } else {
-    return day;
+    return String(day).replace(',','');
   }
 }
 
@@ -264,35 +265,15 @@ function queueDay(){
   if (n == 0){
     return "No Office Hours Today"
   } else if (n == 1){
-    if (noOH(officeHours.Monday)== "N/A"){
-      return "No Office Hours Today"
-    } else {
-      return noOH(officeHours.Monday)
-    }
+    document.getElementById("Mo").style.backgroundColor = "rgb(60, 210, 255)";
   } else if (n == 2){
-    if (noOH(officeHours.Tuesday)== "N/A"){
-      return "No Office Hours Today"
-    } else {
-      return noOH(officeHours.Tuesday)
-    }
+    document.getElementById("Tu").style.backgroundColor = "rgb(60, 210, 255)";
   } else if (n == 3){
-    if (noOH(officeHours.Wedneday)== "N/A"){
-      return "No Office Hours Today"
-    } else {
-      return noOH(officeHours.Wedneday)
-    }
+    document.getElementById("We").style.backgroundColor = "rgb(60, 210, 255)";
   } else if (n == 4){
-    if (noOH(officeHours.Thursday)== "N/A"){
-      return "No Office Hours Today"
-    } else {
-      return noOH(officeHours.Thursday)
-    }
+    document.getElementById("Th").style.backgroundColor = "rgb(60, 210, 255)";
   } else if (n == 5){
-    if (noOH(officeHours.Friday)== "N/A"){
-      return "No Office Hours Today"
-    } else {
-      return noOH(officeHours.Friday)
-    }
+    document.getElementById("Fr").style.backgroundColor = "rgb(60, 210, 255)";
   } else if (n == 6){
     return "No Office Hours Today"
   }
@@ -355,6 +336,22 @@ function setupProfessorName(){
 }
 
 
+<<<<<<< HEAD
+function departmentSwitcher(){
+  document.getElementById("img1").src = '../settings/assets/Dept1.png'
+  document.getElementById("img2").src = '../settings/assets/Dept2.png'
+  document.getElementById("img3").src = '../settings/assets/Dept3.png'
+}
+
+function professorSwitcher(){
+  document.getElementById("img1").src = '../settings/assets/Prof1.png'
+  document.getElementById("img2").src = '../settings/assets/Prof2.png'
+  document.getElementById("img3").src = '../settings/assets/Prof3.png'
+}
+
+
+=======
+>>>>>>> ca2dab44cd39cc1b0af402a836c855adadcbeeac
 
     
   
