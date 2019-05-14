@@ -16,12 +16,21 @@
 //     },
 // ];
 // localStorage.setItem('announcements', JSON.stringify(announcements))
+
 function loadAnnouncements() {
+<<<<<<< HEAD
+    let announcemnets = JSON.parse(localStorage.getItem('announcements'))
+    if (announcemnets == null){
+        announcemnets = [];
+    }
+    return announcemnets;
+=======
     let announcements = JSON.parse(localStorage.getItem('announcements'))
     if(!announcements){
       announcements=[];
     }
     return announcements;
+>>>>>>> 28b18cdd32085aabd08163d3f7354b9725876c63
 }
 
 function setupAnnouncements() {

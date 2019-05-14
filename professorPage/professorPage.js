@@ -5,7 +5,7 @@
 window.onload = function () {
   setInterval(DateDisplay,1000);
   showDivs(slideIndex);
-  status();
+  //status();
   ohButton();
   getOH();
   setupNav();
@@ -16,6 +16,7 @@ window.onload = function () {
   setupProfessorName();
 
 }
+status();
 
 function setupOffice(){
   let name = document.querySelector('#name');
@@ -35,26 +36,42 @@ function ohButton() {
   var i;
 
   for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function () {
-        getOH();
-      this.classList.toggle("active");
-      var content = document.getElementById("weekbutton")
+    getOH();
+    coll[i].classList.toggle("active");
+    var content = document.getElementById("weekbutton")
 
       if (content.style.display === "inline-block") {
         content.style.display = "none";
       } else {
         content.style.display = "inline-block";
       }
-    });
+    
   }
 }
+
+
 
 //Status function, changes the appearnce based on the boolean "here" value
 function status() {
   let here = JSON.parse(localStorage.getItem('officeStatus'))
-  
+  if (here == null) {
+    here = {
+      status: null,
+      hours: null,
+      minutes: null,
+      seconds: null
+  }
+
+  }
   if (here.status == "false") {
-    outOfOffice(parseInt(here.hours), parseInt(here.minutes), 0); // this takes parameters (hours,minutes,seconds)
+    if (here.hours == ""){
+      here.hours = 0
+    }
+    if (here.minutes == ""){
+      here.minutes = 0
+    }
+   
+    outOfOffice(parseInt(here.hours), parseInt(here.minutes), parseInt(here.seconds)); // this takes parameters (hours,minutes,seconds)
     document.getElementById("status").style.backgroundColor = "rgb(201, 0, 0)"
   } else {
     inOffice();
@@ -71,7 +88,7 @@ function inOffice() {
 //sets up countdown timer
 function outOfOffice(hours, mins, secs) {
   var countDownDate = new Date();
-
+  
   countDownDate.setHours(hours + countDownDate.getHours());
   countDownDate.setMinutes(mins + countDownDate.getMinutes());
   countDownDate.setSeconds(secs + 1 + countDownDate.getSeconds());
@@ -95,13 +112,21 @@ function outOfOffice(hours, mins, secs) {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="demo"
-    document.getElementById("statusValue").innerHTML = + hours + "h "
+    document.getElementById("statusValue").innerHTML = "I will be back in: " + hours + "h "
       + minutes + "m " + seconds + "s ";
+      let statusObj;
+      statusObj = {
+        status: 'false',
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds,
+    }
+    localStorage.setItem('officeStatus', JSON.stringify(statusObj));
 
     // If the count down is finished, write some text
     if (distance < 0) {
       clearInterval(x);
-      document.getElementById("statusValue").innerHTML = "Should be here any minute!!";
+      document.getElementById("statusValue").innerHTML = "Should be back soon!!";
 
     }
   }, 1000);
@@ -168,7 +193,7 @@ function showDivs(n) {
 
 function getOH(){
   let officeHours = JSON.parse(localStorage.getItem("availability"));
-  document.getElementById("todayOfficeHourButton").innerHTML = queueDay();
+  //document.getElementById("todayOfficeHourButton").innerHTML = queueDay();
   document.getElementById("mondayValue").innerHTML = noOH(officeHours.Monday);
   document.getElementById("tuesdayValue").innerHTML = noOH(officeHours.Tuesday);
   document.getElementById("wednesdayValue").innerHTML = noOH(officeHours.Wedneday);
@@ -328,4 +353,9 @@ function setupProfessorName(){
   let name = document.querySelector("#name");
   name.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s Office`;
 }
+
+
+
+    
+  
 
