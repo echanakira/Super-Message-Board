@@ -38,7 +38,10 @@ function toggleQueue() {
 }
 
 
-/*function nextInQueue() {
+
+/*
+function nextInQueue() {
+
         getCurrentQueue();
     if(queue){
     var nextStudent = queue[0];
@@ -50,7 +53,11 @@ function toggleQueue() {
     }
         
         
+<<<<<<< HEAD
     }*/
+
+
+
 function OLDnextInQueue() {
     getCurrentQueue();
     let nextStudent = queue.shift();
@@ -62,6 +69,7 @@ function nextInQueue() {
     var nextStudent = queue[0];
     return nextStudent;
 }
+
 
 function getCurrentQueue() {
     let queue = JSON.parse(localStorage.getItem('currentQueue'))

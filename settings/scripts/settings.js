@@ -107,6 +107,7 @@ function submitOfficeInfo() {
             hours: null,
             minutes: null,
             seconds: null
+
         }
         console.log(JSON.stringify(statusObj))
         localStorage.setItem('officeStatus', JSON.stringify(statusObj));
@@ -118,6 +119,7 @@ function submitOfficeInfo() {
             hours: newHours.value,
             minutes: newMinutes.value,
             seconds: 0,
+
         }
         localStorage.setItem('officeStatus', JSON.stringify(statusObj));
     }

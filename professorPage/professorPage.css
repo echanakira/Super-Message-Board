@@ -55,7 +55,11 @@ ul {
 .weekdays {
   margin: 0;
   padding: 0px 0;
+<<<<<<< HEAD
   *background-color: rgb(68, 137, 158);
+=======
+  background-color: rgb(68, 137, 158);
+>>>>>>> ca2dab44cd39cc1b0af402a836c855adadcbeeac
 }
 
 .umd-weekdays{
@@ -106,7 +110,7 @@ ul {
 /*Office hour day section*/
 
 .days {
-  padding: 10px 0;
+  padding: 0px 0;
   background: #eee;
   margin: 0;
 }
@@ -372,6 +376,7 @@ img {
 /*///////////////////////////////////////////////////////////////////////////////////////////*/
 
 
+<<<<<<< HEAD
 /* Style the tab */
 .tab {
   width: 350px;
@@ -415,3 +420,5 @@ img {
   border: 1px solid #ccc;
   border-top: none;
 }
+=======
+>>>>>>> ca2dab44cd39cc1b0af402a836c855adadcbeeac

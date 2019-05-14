@@ -336,6 +336,7 @@ function setupProfessorName(){
 }
 
 
+<<<<<<< HEAD
 function departmentSwitcher(){
   document.getElementById("img1").src = '../settings/assets/Dept1.png'
   document.getElementById("img2").src = '../settings/assets/Dept2.png'
@@ -349,6 +350,8 @@ function professorSwitcher(){
 }
 
 
+=======
+>>>>>>> ca2dab44cd39cc1b0af402a836c855adadcbeeac
 
     
   
