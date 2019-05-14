@@ -35,13 +35,8 @@ fieldset {
 .content {
   position: absolute;
   left: 2%;
-<<<<<<< HEAD
   bottom: 71%;
   width: 50%;
-=======
-  bottom: 70%;
-  width: 60%;
->>>>>>> c9123a748e9a68685aabf65c49250b7a6f414b7b
   text-align: center;
   display: none;
   overflow: hidden;
@@ -59,16 +54,9 @@ ul {
 
 .weekdays {
   margin: 0;
-  padding: 0px 0;
-<<<<<<< HEAD
+
   *background-color: rgb(68, 137, 158);
-=======
-<<<<<<< HEAD
-  *background-color: rgb(68, 137, 158);
-=======
-  background-color: rgb(68, 137, 158);
->>>>>>> ca2dab44cd39cc1b0af402a836c855adadcbeeac
->>>>>>> c9123a748e9a68685aabf65c49250b7a6f414b7b
+
 }
 
 .umd-weekdays{
@@ -128,8 +116,6 @@ ul {
 
 
 #MoContain{
-<<<<<<< HEAD
-=======
   list-style-type: none;
   display: inline-block;
   width: 19%;
@@ -170,56 +156,12 @@ ul {
   text-align: center;
 }
 #FrContain{
->>>>>>> c9123a748e9a68685aabf65c49250b7a6f414b7b
   list-style-type: none;
   display: inline-block;
   width: 19%;
   text-align: center;
   margin-bottom: 5px;
   font-size: 15px;
-<<<<<<< HEAD
-  color: #777;
-  text-align: center;
-}
-#TuContain{
-  list-style-type: none;
-  display: inline-block;
-  width: 19%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size: 15px;
-  color: #777;
-  text-align: center;
-}
-#WeContain{
-  list-style-type: none;
-  display: inline-block;
-  width: 19%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size: 15px;
-  color: #777;
-  text-align: center;
-}
-#ThContain{
-  list-style-type: none;
-  display: inline-block;
-  width: 19%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size: 15px;
-  color: #777;
-  text-align: center;
-}
-#FrContain{
-  list-style-type: none;
-  display: inline-block;
-  width: 19%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size: 15px;
-=======
->>>>>>> c9123a748e9a68685aabf65c49250b7a6f414b7b
   color: #777;
   text-align: center;
 }
@@ -483,8 +425,4 @@ img {
   border: 1px solid #ccc;
   border-top: none;
 }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> ca2dab44cd39cc1b0af402a836c855adadcbeeac
->>>>>>> c9123a748e9a68685aabf65c49250b7a6f414b7b
+
