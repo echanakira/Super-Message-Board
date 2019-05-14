@@ -4,7 +4,6 @@ function setupQueue() {
     console.log(currentQueue)
 }
 
-
 function toggleQueue() {
     let toggle = document.querySelector('#queue-toggle');
     let container = document.querySelector("#queue-modal-content")
@@ -44,6 +43,31 @@ function toggleQueue() {
     }
 }
 
+/*
+function nextInQueue() {
+
+        getCurrentQueue();
+    if(queue){
+    var nextStudent = queue[0];
+    return nextStudent;
+    }else{
+    //null error 
+    alert(" no more students in queue");
+    return null;
+    }
+        
+        
+<<<<<<< HEAD
+    }*/
+
+
+
+function OLDnextInQueue() {
+    getCurrentQueue();
+    let nextStudent = queue.shift();
+    localStorage.setItem('currentQueue', JSON.stringify(queue))
+    return nextStudent;
+}
 
 function nextInQueue() {
     getCurrentQueue();
@@ -55,9 +79,8 @@ function nextInQueue() {
         alert(" no more students in queue");
         return null;
     }
-
-
 }
+
 
 function getCurrentQueue() {
     let queue = JSON.parse(localStorage.getItem('currentQueue'))

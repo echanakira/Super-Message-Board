@@ -5,8 +5,9 @@
 window.onload = function () {
   setInterval(DateDisplay,1000);
   showDivs(slideIndex);
-  status();
+  //status();
   ohButton();
+  queueDay();
   getOH();
   setupNav();
   getAnnouncements1();
@@ -16,6 +17,7 @@ window.onload = function () {
   setupProfessorName();
 
 }
+status();
 
 function setupOffice(){
   let name = document.querySelector('#name');
@@ -35,26 +37,42 @@ function ohButton() {
   var i;
 
   for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function () {
-        getOH();
-      this.classList.toggle("active");
-      var content = document.getElementById("weekbutton")
+    getOH();
+    coll[i].classList.toggle("active");
+    var content = document.getElementById("weekbutton")
 
       if (content.style.display === "inline-block") {
         content.style.display = "none";
       } else {
         content.style.display = "inline-block";
       }
-    });
+    
   }
 }
+
+
 
 //Status function, changes the appearnce based on the boolean "here" value
 function status() {
   let here = JSON.parse(localStorage.getItem('officeStatus'))
-  
+  if (here == null) {
+    here = {
+      status: null,
+      hours: null,
+      minutes: null,
+      seconds: null
+  }
+
+  }
   if (here.status == "false") {
-    outOfOffice(parseInt(here.hours), parseInt(here.minutes), 0); // this takes parameters (hours,minutes,seconds)
+    if (here.hours == ""){
+      here.hours = 0
+    }
+    if (here.minutes == ""){
+      here.minutes = 0
+    }
+   
+    outOfOffice(parseInt(here.hours), parseInt(here.minutes), parseInt(here.seconds)); // this takes parameters (hours,minutes,seconds)
     document.getElementById("status").style.backgroundColor = "rgb(201, 0, 0)"
   } else {
     inOffice();
@@ -71,7 +89,7 @@ function inOffice() {
 //sets up countdown timer
 function outOfOffice(hours, mins, secs) {
   var countDownDate = new Date();
-
+  
   countDownDate.setHours(hours + countDownDate.getHours());
   countDownDate.setMinutes(mins + countDownDate.getMinutes());
   countDownDate.setSeconds(secs + 1 + countDownDate.getSeconds());
@@ -95,13 +113,21 @@ function outOfOffice(hours, mins, secs) {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="demo"
-    document.getElementById("statusValue").innerHTML = + hours + "h "
+    document.getElementById("statusValue").innerHTML = "I will be back in: " + hours + "h "
       + minutes + "m " + seconds + "s ";
+      let statusObj;
+      statusObj = {
+        status: 'false',
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds,
+    }
+    localStorage.setItem('officeStatus', JSON.stringify(statusObj));
 
     // If the count down is finished, write some text
     if (distance < 0) {
       clearInterval(x);
-      document.getElementById("statusValue").innerHTML = "Should be here any minute!!";
+      document.getElementById("statusValue").innerHTML = "Should be back soon!!";
 
     }
   }, 1000);
@@ -168,8 +194,7 @@ function showDivs(n) {
 
 function getOH(){
   let officeHours = JSON.parse(localStorage.getItem("availability"));
-  if(officeHours == null) return;
-  document.getElementById("todayOfficeHourButton").innerHTML = queueDay();
+  //document.getElementById("todayOfficeHourButton").innerHTML = queueDay();
   document.getElementById("mondayValue").innerHTML = noOH(officeHours.Monday);
   document.getElementById("tuesdayValue").innerHTML = noOH(officeHours.Tuesday);
   document.getElementById("wednesdayValue").innerHTML = noOH(officeHours.Wedneday);
@@ -181,7 +206,7 @@ function noOH(day){
   if (day.length == 0){
     return "N/A";
   } else {
-    return day;
+    return String(day).replace(',','');
   }
 }
 
@@ -241,35 +266,15 @@ function queueDay(){
   if (n == 0){
     return "No Office Hours Today"
   } else if (n == 1){
-    if (noOH(officeHours.Monday)== "N/A"){
-      return "No Office Hours Today"
-    } else {
-      return noOH(officeHours.Monday)
-    }
+    document.getElementById("Mo").style.backgroundColor = "rgb(60, 210, 255)";
   } else if (n == 2){
-    if (noOH(officeHours.Tuesday)== "N/A"){
-      return "No Office Hours Today"
-    } else {
-      return noOH(officeHours.Tuesday)
-    }
+    document.getElementById("Tu").style.backgroundColor = "rgb(60, 210, 255)";
   } else if (n == 3){
-    if (noOH(officeHours.Wedneday)== "N/A"){
-      return "No Office Hours Today"
-    } else {
-      return noOH(officeHours.Wedneday)
-    }
+    document.getElementById("We").style.backgroundColor = "rgb(60, 210, 255)";
   } else if (n == 4){
-    if (noOH(officeHours.Thursday)== "N/A"){
-      return "No Office Hours Today"
-    } else {
-      return noOH(officeHours.Thursday)
-    }
+    document.getElementById("Th").style.backgroundColor = "rgb(60, 210, 255)";
   } else if (n == 5){
-    if (noOH(officeHours.Friday)== "N/A"){
-      return "No Office Hours Today"
-    } else {
-      return noOH(officeHours.Friday)
-    }
+    document.getElementById("Fr").style.backgroundColor = "rgb(60, 210, 255)";
   } else if (n == 6){
     return "No Office Hours Today"
   }
@@ -330,4 +335,25 @@ function setupProfessorName(){
   let name = document.querySelector("#name");
   name.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s Office`;
 }
+
+
+<<<<<<< HEAD
+function departmentSwitcher(){
+  document.getElementById("img1").src = '../settings/assets/Dept1.png'
+  document.getElementById("img2").src = '../settings/assets/Dept2.png'
+  document.getElementById("img3").src = '../settings/assets/Dept3.png'
+}
+
+function professorSwitcher(){
+  document.getElementById("img1").src = '../settings/assets/Prof1.png'
+  document.getElementById("img2").src = '../settings/assets/Prof2.png'
+  document.getElementById("img3").src = '../settings/assets/Prof3.png'
+}
+
+
+=======
+>>>>>>> ca2dab44cd39cc1b0af402a836c855adadcbeeac
+
+    
+  
 

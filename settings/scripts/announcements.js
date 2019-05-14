@@ -16,12 +16,13 @@
 //     },
 // ];
 // localStorage.setItem('announcements', JSON.stringify(announcements))
+
 function loadAnnouncements() {
-    let announcements = JSON.parse(localStorage.getItem('announcements'))
-    if(!announcements){
-      announcements=[];
+    let announcemnets = JSON.parse(localStorage.getItem('announcements'))
+    if (announcemnets == null){
+        announcemnets = [];
     }
-    return announcements;
+    return announcemnets;
 }
 
 function setupAnnouncements() {
@@ -109,11 +110,11 @@ function addAnnouncement() {
     let newPhoto;
 
     if (document.querySelector('#option-1').checked) {
-        newPhoto = '../settings/assets/stock1.jpg'
+        newPhoto = '../settings/assets/Prof1.png'
     } else if (document.querySelector('#option-2').checked) {
-        newPhoto = '../settings/assets/stock2.png'
+        newPhoto = '../settings/assets/Prof2.png'
     } else if (document.querySelector('#option-3').checked) {
-        newPhoto = '../setting/assets/stock3.jpg'
+        newPhoto = '../settings/assets/Prof3.png'
     } else {
         newPhoto = '../settings/assets/stock5.png'
     }

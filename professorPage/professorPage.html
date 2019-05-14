@@ -21,20 +21,20 @@
                 <font size="5">IRB </font><font size="5" id='nav-office-number1'></font>
             </strong>
         </legend>
-        <marquee behavior="scroll" bgcolor="white" loop="-2" width="100%">
+        
             <i>
                 <font color="black" size="5">
-                    <strong>Today's date is :
+                    <strong>
                         <span id="time"></span>
                     </strong>
                 </font>
             </i>
-        </marquee>
+        
     </fieldset>
 
     <div>
         <span id="status">
-            <font size="5.4">Status:
+            <font size="5.4">
                 <span id="statusValue"></span>
             </font>
         </span>
@@ -46,14 +46,16 @@
     <br>
     <br>
 
-    <div id="bottom">
-        <div id ="slideTitle">
-        <strong>
-            <font size="5">Professor Announcements</font>
-        </strong>
-        </div>
-        <div class="slideshow-container">
 
+
+ 
+    <div id="bottom">
+       
+        <div class="slideshow-container">
+            <div class="tab">
+                <button class="tablinks" onclick="professorSwitcher()">Professor Announcments</button>
+                <button class="tablinks" onclick="departmentSwitcher()">Department Announcments</button>
+            </div>
             <!-- Full-width images with number and caption text -->
             <div class="w3-content" style="max-width:800px">
                 <img class="mySlides" id ="img1" src="" width="520" height="350">
@@ -84,48 +86,43 @@
         </div>
     </div>
 
-    <fieldset class="office">
-        <legend><strong>
-                <font size="5">Todays Office Hours</font>
-            </strong></legend>
-
-        <button class="collapsible" id="button"><span id ="todayOfficeHourButton"></span></button>
-    </fieldset>
-
+    <div id= "tester">
+        <a class="collapsible"></a>
+    </div>
 
     <div class="content" id="weekbutton">
         <ul class="weekdays">
-            <li>
+            <li id = "Mo">
                 <font size="5">Mo</font>
             </li>
-            <li>
+            <li id ="Tu">
                 <font size="5">Tu</font>
             </li>
-            <li>
+            <li id = "We">
                 <font size="5">We</font>
             </li>
-            <li>
+            <li id = "Th">
                 <font size="5">Th</font>
             </li>
-            <li>
+            <li id = "Fr">
                 <font size="5">Fr</font>
             </li>
         </ul>
 
         <ul class="days">
-            <li>
+            <li id="MoContain">
                 <font size="3"><span id="mondayValue">N/A</span></font>
             </li>
-            <li>
+            <li id="TuContain">
                 <font size="3"><span id="tuesdayValue">N/A</span></font>
             </li>
-            <li>
+            <li id="WeContain">
                 <font size="3"><span id="wednesdayValue">N/A</span></font>
             </li>
-            <li>
+            <li id="ThContain">
                 <font size="3"><span id="thursdayValue">N/A</span></font>
             </li>
-            <li>
+            <li id="FrContain">
                 <font size="3"><span id="fridayValue">N/A</span></font>
             </li>
         </ul>
