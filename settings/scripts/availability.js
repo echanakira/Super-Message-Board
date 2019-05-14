@@ -23,47 +23,27 @@ function addAvailableTime() {
     var day = document.getElementById("dayOfWeek").value;
     var start = document.getElementById("startTime").value;
     var end = document.getElementById("endTime").value;
-    console.log(start + end);
     var AMorPMStart, startHour, startMinute;
     var AMorPMEnd, endHour, endMinute;
     startHour = parseInt(start.substr(0, 2));
     endHour = parseInt(end.substr(0, 2));
-    startMinute = start.substr(2);
-    endMinute = end.substr(2);
-    if (startHour >= 12) {
+    if (startHour > 12) {
         AMorPMStart = " PM";
-        if(startHour == 12) {
-            startMinute = startHour + startMinute;
-        } else {
-            startMinute = (startHour % 12).toString() + startMinute;
-        }
+        startMinute = start.substr(2);
+        startMinute = (startHour % 12).toString() + startMinute;
         start = startMinute;
     } else {
         AMorPMStart = " AM";
-        if(startHour == 0) {
-            start = "12" + startMinute;
-        }
-        if(start < 10) {
-            start = start.substr(1);
-        }
+        start = start.substr(1);
     }
-    if (endHour >= 12) {
+    if (endHour > 12) {
         AMorPMEnd = " PM";
-        if(endHour == 12) {
-            endMinute = endHour + endMinute;
-        } else {
-            endMinute = (endHour % 12).toString() + endMinute;
-        }
-        
+        endMinute = end.substr(2);
+        endMinute = (endHour % 12).toString() + endMinute;
         end = endMinute;
     } else {
         AMorPMEnd = " AM";
-        if(endHour == 0) {
-            end = "12" + endMinute;
-        }
-        if(end < 10) {
-            end = end.substr(1);
-        }
+        end = end.substr(1);
     }
     document.getElementById(days[day - 1]).innerHTML += "<li>" + start + AMorPMStart + " - " + end + AMorPMEnd + "<span class=\"rmButton\"> &#x2716;</span></li>";
     // add this time into localStorage so that Hamza's page can access it.

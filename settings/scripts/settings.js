@@ -15,10 +15,10 @@ let queue = [];
 let currentStudent;
 let numInQueue = 0;
 
-window.onload = function () {
+window.onload = function(){
     resetStorage();
     setup();
-}
+    }
 
 function resetStorage() {
     resetStorageupdated();
@@ -26,6 +26,12 @@ function resetStorage() {
 
 function resetStorageupdated() {
     var student = new Student("Elijah", id, "bob@bill.com", "333-333-3333", "cmsc434", "need help on project");
+    id++;
+    queue.push(student);
+     student = new Student("Elijah2", id, "bob@bill.com", "333-333-3333", "cmsc434", "need help on project");
+    id++;
+    queue.push(student);
+    var student = new Student("Elijah3", id, "bob@bill.com", "333-333-3333", "cmsc434", "need help on project");
     id++;
     queue.push(student);
     //create a new student and then increase the id for the next person
@@ -40,6 +46,7 @@ function resetStorageupdated() {
 /******************** HTML STEUP AND MANIPULATION ********************/
 function setup() {
     // console.log('Setting up')
+
     setupProfessorInfo();
     modalSetup();
     setupQueue();
@@ -47,24 +54,21 @@ function setup() {
     setupAnnouncements();
     loadAvailableTime();
     setupThemeModal();
-    setupThemeSettings();
-}
 
+}
 function validateName(name) {
     var re = /^([a-zA-Z]+(-[a-zA-Z]+)*(\s[a-zA-Z]+)*)$/;
     return re.test(String(name).toLowerCase());
 }
-
 function validateNumber(num) {
     var re = /^[0-5][0-9][0-9][0-9]$/;
     return re.test(String(num));
 }
-
 function setupEvents() {
-    let officeBtn = document.querySelector('#submit-office');
+   let officeBtn = document.querySelector('#submit-office');
     let toggleBtn = document.querySelector('#queue-toggle');
     let notifyBtn = document.querySelector('#notify-queue');
-    let value = 0;
+    let value=0;
 
     officeBtn.addEventListener('click', function () {
         submitOfficeInfo();
@@ -78,17 +82,17 @@ function setupEvents() {
 
 //Event that updates office information
 function submitOfficeInfo() {
-    let name = document.querySelector('#office-modal #professor-name');
-    let office = document.querySelector('#office-number');
+  let name = document.querySelector('#office-modal #professor-name');
+  let office = document.querySelector('#office-number');
 
-    if (!validateName(name.value)) {
-        alert("please enter a valid name");
-        return false;
-    }
-    if (!validateNumber(office.value)) {
-        alert("please enter a valid Office number ####");
-        return false;
-    }
+  if(!validateName(name.value)){
+    alert("please enter a valid name");
+  return false;
+  }
+  if(!validateNumber(office.value)){
+    alert("please enter a valid Office number ####");
+    return false;
+  }
 
     let statusObj;
 
@@ -96,21 +100,17 @@ function submitOfficeInfo() {
     localStorage.setItem('officeNumber', JSON.stringify(office.value));
 
     if (document.getElementById('in-office').checked) {
+        let newTime = document.querySelector('#time');
+        console.log(newTime.value);
         statusObj = {
             status: 'true',
-            hours: null,
-            minutes: null,
-            seconds: null
+            time: toStandardTime(newTime.value)
         }
         localStorage.setItem('officeStatus', JSON.stringify(statusObj));
     } else {
-        let newHours = document.querySelector('#hours');
-        let newMinutes = document.querySelector("#minutes")
         statusObj = {
             status: 'false',
-            hours: newHours.value,
-            minutes: newMinutes.value,
-            seconds: 0,
+            time: null
         }
         localStorage.setItem('officeStatus', JSON.stringify(statusObj));
     }
@@ -182,19 +182,27 @@ function modalSetup() {
 
 function setupProfessorInfo() {
     let title = document.querySelector('#page-title');
+
     title.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s
     Hub`;
     let office = document.querySelector('#nav-office-number');
     console.log(office);
+
     office.innerHTML = JSON.parse(localStorage.getItem('officeNumber'));
 
     let navNam = document.querySelector('#prof-name');
     navNam.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s Page`;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 28b18cdd32085aabd08163d3f7354b9725876c63
 }
 
 function refreshPage() {
     setupProfessorInfo();
 }
+
 
 function setupThemeModal() {
     let themeOptions = document.querySelectorAll('.themes');
@@ -202,6 +210,7 @@ function setupThemeModal() {
 
     button.addEventListener('click',
         function () {
+          console.log("theme click");
             for (let index = 0; index < themeOptions.length; index++) {
                 if (themeOptions[index].checked) {
                     changeTheme(themeOptions[index], index);
@@ -216,6 +225,7 @@ function setupThemeModal() {
 
 
 //Function changes the current theme in local storage
+
 function changeTheme(option, index) {
     let text, nav, bg, secondaryBG, modalB, navText, type;
     if (option.value == 'dark') {
@@ -281,4 +291,3 @@ function setupThemeSettings() {
     });
 
 }
-

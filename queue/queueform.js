@@ -156,19 +156,11 @@ function removeFromQueue(index){
 }
 //gets next in queue
 
-function nextInQueue() {
-      getCurrentQueue();
-  if(queue){
-  var nextStudent = queue[0];
-  return nextStudent;
-  }else{
-  //null error 
-  alert(" no more students in queue");
-  return null;
-  }
-      
-  }
-
+function nextInQueue(){
+  getCurrentQueue();
+  currentStudent=queue.shift();
+  localStorage.setItem('currentQueue', JSON.stringify(queue));
+}
 function getCurrentCL() {
     let classes = JSON.parse(localStorage.getItem('classlist'));
     console.log(classes);
@@ -190,6 +182,11 @@ function removeFromQueue(index){
 }
 //gets next in queue
 
+function nextInQueue(){
+  getCurrentQueue();
+  currentStudent=queue.shift();
+  localStorage.setItem('currentQueue', JSON.stringify(queue));
+}
 function getCurrentCL() {
     let classes = JSON.parse(localStorage.getItem('classlist'));
     console.log(classes);

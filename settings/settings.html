@@ -27,6 +27,8 @@
             <div class='modal-content'>
                 <span class='close'>&times;</span>
                 <h2>Update Office Information</h3> <br />
+
+    
                     <form>
                         <fieldset>
                             <legend>Office Information</legend>
@@ -47,6 +49,7 @@
                             <button onclick="window.location.reload()">Cancel</button>
                         </fieldset>
                     </form>
+
             </div>
         </div>
 
@@ -69,11 +72,13 @@
                 <h2> Manage Themes</h2>
                 <fieldset>
                     <legend>Select Theme</legend> <br />
+
                     <input class='themes' type='radio' name="themeradio" value='normal' checked>Normal Theme </input> <br />
                     <input class='themes' type='radio' name="themeradio" value='dark' />Dark Theme </input><br />
                     <input class='themes' type='radio' name="themeradio" value='umd' />UMD Theme </input> <br />
                     <button id='theme-submit'> Submit </button>
                     <button onclick="window.location.reload()">Cancel</button>
+
                 </fieldset>
             </div>
         </div>
@@ -124,8 +129,11 @@
                         </fieldset>
 
                     </form>
+
                     <button onclick="addAvailableTime();" id='submitTimes'> Submit </button>
-                    <!--<button onclick="window.location.reload()">Cancel</button> -->
+
+                    <button onclick="window.location.reload()">Cancel</button>
+
                 </div>
             </div>
         </div>
@@ -145,12 +153,14 @@
                     <textarea id='announcement-description' rows="4" cols="50" placeholder="Description"></textarea>
                     <br />
                     <h3> Select Photo</h3>
+
                     <div id='option-container'>
                         <input id="option-1" type='radio' name='photo' value='theme-1' />Photo #1 </input>
                         <input id="option-2" type='radio' name='photo' value='theme-2' />Photo #2 </input> <br />
                         <input id="option-3" type='radio' name='photo' value='theme-3' />Photo #3 </input>
                         <input id="option-4" type='radio' name='photo' value='theme-4' />Photo #4 </input> <br />
                     </div>
+
                     <!-- <p> Upload a photo</p> <input type='file'> -->
                     <button id='announcement-submit'> Submit </button>
                     <button onclick="window.location.reload()">Cancel</button>

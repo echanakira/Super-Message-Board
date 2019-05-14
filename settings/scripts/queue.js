@@ -38,19 +38,17 @@ function toggleQueue() {
 }
 
 
+function OLDnextInQueue() {
+    getCurrentQueue();
+    let nextStudent = queue.shift();
+    localStorage.setItem('currentQueue', JSON.stringify(queue))
+    return nextStudent;
+}
 function nextInQueue() {
-        getCurrentQueue();
-    if(queue){
+    getCurrentQueue();
     var nextStudent = queue[0];
     return nextStudent;
-    }else{
-    //null error 
-    alert(" no more students in queue");
-    return null;
-    }
-        
-        
-    }
+}
 
 function getCurrentQueue() {
     let queue = JSON.parse(localStorage.getItem('currentQueue'))
@@ -113,7 +111,7 @@ function loadQueue() {
     return queue;
 }
 
-/* Function that finds a student in the queue 
+/* Function that finds a student in the queue
  * Student name has a special character which needs to be removed
  */
 function findStudent(studentName, queue) {
