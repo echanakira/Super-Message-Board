@@ -14,7 +14,17 @@ function loadAvailableTime() {
                 }
             }
         }
-    }else{}
+    } else {
+        localStorage.setItem("availability", JSON.stringify({
+            "Monday": [],
+            "Tuesday": [],
+            "Wednesday": [],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": [],
+            "Sunday": []
+        }))
+    }
     removeTime();
 }
 
@@ -71,7 +81,7 @@ function addAvailableTime() {
     var weekJSON = {
         "Monday": [],
         "Tuesday": [],
-        "Wedneday": [],
+        "Wednesday": [],
         "Thursday": [],
         "Friday": [],
         "Saturday": [],
@@ -79,7 +89,9 @@ function addAvailableTime() {
     }
     if (localStorage.getItem("availability") != null) {
         temp = localStorage.getItem("availability");
+       
         timeJSON = JSON.parse(temp);
+  
         timeJSON[days[day - 1]].push(start + AMorPMStart + " - " + end + AMorPMEnd + "\n");
         localStorage.setItem("availability", JSON.stringify(timeJSON));
     } else {

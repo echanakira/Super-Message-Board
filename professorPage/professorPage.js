@@ -9,7 +9,8 @@ window.onload = function () {
   ohButton();
   queueDay();
   getOH();
-  setupNav();
+  //setupNav();
+  setupOffice()
   getAnnouncements1();
   getAnnouncements2();
   getAnnouncements3();
@@ -194,22 +195,38 @@ function showDivs(n) {
 
 function getOH(){
   let officeHours = JSON.parse(localStorage.getItem("availability"));
-  //document.getElementById("todayOfficeHourButton").innerHTML = queueDay();
+  
+  if(officeHours == null){
+    var weekHourstemp = {
+      "Monday": [],
+      "Tuesday": [],
+      "Wednesday": [],
+      "Thursday": [],
+      "Friday": [],
+      "Saturday": [],
+      "Sunday": []
+    }
+    
+    localStorage.setItem("availability", JSON.stringify(weekHourstemp))
+  } else {  
+    console.log("here")
   document.getElementById("mondayValue").innerHTML = noOH(officeHours.Monday);
   document.getElementById("tuesdayValue").innerHTML = noOH(officeHours.Tuesday);
-  document.getElementById("wednesdayValue").innerHTML = noOH(officeHours.Wedneday);
+  document.getElementById("wednesdayValue").innerHTML = noOH(officeHours.Wednesday);
   document.getElementById("thursdayValue").innerHTML = noOH(officeHours.Thursday);
   document.getElementById("fridayValue").innerHTML = noOH(officeHours.Friday);
+  }
 }
 
 function noOH(day){
+  
   if (day.length == 0){
     return "N/A";
   } else {
     return String(day).replace(',','');
   }
 }
-
+/*
 function setupNav(){
   let office1 = document.querySelector('#nav-office-number1');
   let office2 = document.querySelector('#nav-office-number2');
@@ -218,6 +235,7 @@ function setupNav(){
   office2.innerHTML =  JSON.parse(localStorage.getItem('officeNumber'));
   
 }
+*/
 
 
 //get the announcments
@@ -295,14 +313,14 @@ function setupThemeProfessor() {
     // console.log(marqueeFont);
 
     /* Consistent Across All Pages */
-    nav.style.backgroundColor = themes[0];
-    nav.style.color = themes[3];
+    //nav.style.backgroundColor = themes[0];
+    //nav.style.color = themes[3];
     body.style.backgroundColor = themes[1];
     body.style.color = themes[2];
 
     /* Page Specific */
-    // marquee.style.backgroundColor = themes[1];
-    // marqueeFont.style.color = themes[2];
+    //marquee.style.backgroundColor = themes[1];
+    //marqueeFont.style.color = themes[2];
 
     if(themes[6] == 'dark'){
 

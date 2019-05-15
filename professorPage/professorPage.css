@@ -32,18 +32,18 @@ fieldset {
 /*The div container for the weekly office hours once clicked.
   Location: Middle of the middle section. Between "office hour" button and "queue" button*/
 
-.content {
-  position: absolute;
-  left: 2%;
-  bottom: 70%;
-  width: 60%;
-  text-align: center;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-  border-radius: 15px;
-}
 
+  .content {
+    position: absolute;
+    left: 2%;
+    bottom: 70%;
+    width: 50%;
+    text-align: center;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    border-radius: 15px;
+  }
 /*List basic properties*/
 
 ul {
@@ -55,11 +55,8 @@ ul {
 .weekdays {
   margin: 0;
   padding: 0px 0;
-<<<<<<< HEAD
-  *background-color: rgb(68, 137, 158);
-=======
-  background-color: rgb(68, 137, 158);
->>>>>>> ca2dab44cd39cc1b0af402a836c855adadcbeeac
+  background-color: #f1f1f1;
+
 }
 
 .umd-weekdays{
@@ -110,7 +107,7 @@ ul {
 /*Office hour day section*/
 
 .days {
-  padding: 0px 0;
+  padding: 10px 0;
   background: #eee;
   margin: 0;
 }
@@ -188,7 +185,7 @@ ul {
 
 .queue {
   position: absolute;
-  top: 11%;
+  top: 15%;
   right: 1%;
 }
 
@@ -206,8 +203,8 @@ ul {
 .slideshow-container {
   max-width: 1000px;
   position: absolute;
-  bottom: 7%;
-  right: 59%;
+  bottom: 2%;
+  right: 40%;
   text-align: center;
 }
 
@@ -360,8 +357,8 @@ fieldset {
 
 .comic {
   position: absolute;
-  bottom: 13%;
-  right: 5%;
+  bottom: 10%;
+  right: 2%;
   border-radius: 15%;
 }
 
@@ -376,9 +373,13 @@ img {
 /*///////////////////////////////////////////////////////////////////////////////////////////*/
 
 
-<<<<<<< HEAD
+
 /* Style the tab */
 .tab {
+  position: absolute;
+  left: 18%;
+  top:0%;
+
   width: 350px;
   overflow: hidden;
   border: 1px solid #ccc;
@@ -388,7 +389,7 @@ img {
 /* Style the tab content */
 .tabcontent {
   display: none;
-  padding: 6px 6px;
+  padding: 6px 0px;
   border: 1px solid #ccc;
   border-top: none;
 }
@@ -420,5 +421,4 @@ img {
   border: 1px solid #ccc;
   border-top: none;
 }
-=======
->>>>>>> ca2dab44cd39cc1b0af402a836c855adadcbeeac
+
