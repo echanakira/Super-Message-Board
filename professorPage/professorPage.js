@@ -3,6 +3,7 @@
 
 //will call all respective functions when
 window.onload = function () {
+  setupLocalStorage();
   setInterval(DateDisplay,1000);
   showDivs(slideIndex);
   //status();
@@ -16,14 +17,14 @@ window.onload = function () {
   getAnnouncements3();
   setupThemeProfessor();
   setupProfessorName();
+  peopleWaiting()
 
 }
 status();
 
 function setupOffice(){
   let name = document.querySelector('#name');
-  name.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s
-  Office`;
+  name.innerHTML = `${localStorage.getItem('professorName').replace(/"/g,"")}'s Office`;
 }
 
 //the orginal slideIndex
@@ -209,7 +210,6 @@ function getOH(){
     
     localStorage.setItem("availability", JSON.stringify(weekHourstemp))
   } else {  
-    console.log("here")
   document.getElementById("mondayValue").innerHTML = noOH(officeHours.Monday);
   document.getElementById("tuesdayValue").innerHTML = noOH(officeHours.Tuesday);
   document.getElementById("wednesdayValue").innerHTML = noOH(officeHours.Wednesday);
@@ -219,7 +219,6 @@ function getOH(){
 }
 
 function noOH(day){
-  
   if (day.length == 0){
     return "N/A";
   } else {
@@ -241,7 +240,6 @@ function setupNav(){
 //get the announcments
 function getAnnouncements1(){
   let officeHours = JSON.parse(localStorage.getItem("announcements"));
-  console.log(officeHours[0].photo)
   document.getElementById("img1").src =  officeHours[0].photo;
 
 }
@@ -266,6 +264,7 @@ function getAnnouncements3(){
 //Queue display details
 function peopleWaiting(){
   let total = JSON.parse(localStorage.getItem("currentQueue"))
+  console.log(total)
   if(total.length == 1){
     document.getElementById("peopleRemaining").innerHTML = "There is <u><strong>" + total.length + "</strong></u> person left in the queue"
   } else {
@@ -274,7 +273,6 @@ function peopleWaiting(){
   document.getElementById("current").innerHTML = "#" + total[0].posistion;
 }
 
-peopleWaiting()
 
 function queueDay(){
   let officeHours = JSON.parse(localStorage.getItem("availability"));
@@ -301,7 +299,6 @@ function queueDay(){
 //Function called to set theme onwindow load or when theme is changed;
 //themes[nav,bg,text,secondaryBG, modalBG, navText, type]
 function setupThemeProfessor() {
-  console.log('Setting Up Theme')
     let nav = document.querySelector('.navbar');
     let body = document.querySelector('body');
     let themes = JSON.parse(localStorage.getItem('themes'));
@@ -351,7 +348,7 @@ function setupThemeProfessor() {
 
 function setupProfessorName(){
   let name = document.querySelector("#name");
-  name.innerHTML = `${localStorage.getItem('professorName')}'s Office`;
+  name.innerHTML = `${localStorage.getItem('professorName').replace(/"/g,"")}'s Office`;
 }
 
 

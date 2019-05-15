@@ -187,14 +187,14 @@ function modalSetup() {
 function setupProfessorInfo() {
     let title = document.querySelector('#page-title');
 
-    title.innerHTML = `${localStorage.getItem('professorName')}'s Hub`;
+    title.innerHTML = `${localStorage.getItem('professorName').replace(/"/g,"")}'s Hub`;
     let office = document.querySelector('#nav-office-number');
     console.log(office);
 
     office.innerHTML = JSON.parse(localStorage.getItem('officeNumber'));
 
     let navNam = document.querySelector('#prof-name');
-    navNam.innerHTML = `${localStorage.getItem('professorName')}'s Page`;
+    navNam.innerHTML = `${localStorage.getItem('professorName').replace(/"/g,"")}'s Page`;
 
 }
 

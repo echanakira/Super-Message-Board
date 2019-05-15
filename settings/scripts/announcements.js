@@ -55,7 +55,6 @@ function setupAnnouncements() {
 }
 
 function findTitle(name, announcements) {
-    console.log(announcements)
     console.log("Name = " + JSON.stringify(announcements))
     let result = -1;
     let trimmed = name.substring(0, name.length - 1);

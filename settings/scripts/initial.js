@@ -1,3 +1,15 @@
+function Student(name, position, email, phonenum, cls, msg) {
+    this.name = name;
+    this.posistion = position;
+    this.email = email;
+    this.phonenum = phonenum;
+    this.cls = cls;
+    this.msg = msg;
+}
+
+let id = 0;
+let queue = [];
+
 function setupLocalStorage() {
     if (localStorage.getItem("announcements") == null) {
         initialAnnouncements();
@@ -20,6 +32,7 @@ function setupLocalStorage() {
         initialThemes()
     }
     if (localStorage.getItem("currentQueue") == null) {
+        console.log("Settuping Queue")
         initializeQueue();
     }
 }
@@ -66,7 +79,7 @@ function intialAvailability() {
     var weekJSON = {
         "Monday": [],
         "Tuesday": [],
-        "Wedneday": [],
+        "Wednesday": [],
         "Thursday": [],
         "Friday": [],
         "Saturday": [],

@@ -75,14 +75,13 @@ function setupNav(){
   office2.innerHTML = JSON.parse(localStorage.getItem('officeNumber'));
 
   let navNam = document.querySelector('#prof-name');
-  navNam.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s Page &rarr;`;
+  navNam.innerHTML = `${localStorage.getItem('professorName').replace(/"/g,"")}'s Page &rarr;`;
 
 }
 
 //Function called to set theme onwindow load or when theme is changed;
 //themes[nav,bg,text,secondaryBG, modalBG, navText, type]
 function setupThemeHome() {
-  console.log('Setting Up Theme')
     let nav = document.querySelector('.navbar');
     let body = document.querySelector('body');
     let themes = JSON.parse(localStorage.getItem('themes'));

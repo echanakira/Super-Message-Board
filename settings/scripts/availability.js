@@ -9,7 +9,6 @@ function loadAvailableTime() {
             dayArr = time[days[i]];
             if (dayArr != undefined) {
                 for (j = 0; j < dayArr.length; j++) {
-                    console.log(dayArr);
                     document.getElementById(days[i]).innerHTML += "<li>" + dayArr[j] + "<span class=\"rmButton\"> &#x2716;</span></li>";
                 }
             }
