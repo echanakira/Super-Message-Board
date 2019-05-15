@@ -2,7 +2,9 @@
 
 ## **Setup Instructions**
 
-In order to use this project start at settings.html, which can be found in `settings\settings.html`
+* In order to use this project start at settings.html, which can be found in `settings\settings.html`
+
+* Professor page should be viewed in 1024 x 720
 
 ### **BEFORE STARTING PROJECT**
 1. Go to chrome developer tools (Ctrl/CMD + Shift + I )
