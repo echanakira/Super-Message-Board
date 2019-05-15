@@ -44,16 +44,16 @@ button:hover {
 }
 
 #in-office {
-  width: 10% !important;
+  width: 20px !important;
 }
 
 #out-office {
-  width: 10% !important;
+  width: 20px !important;
   /* float:left; */
 }
 
 #input-container {
-  text-align: center;
+  /* text-align: center; */
 }
 
 
@@ -90,6 +90,15 @@ ol li span {
   margin-bottom: 20px;
 }
 
+#queue-modal-content li{
+  cursor: pointer;
+}
+
+#queue-modal-content .description{
+  font-size: .8em;
+  color: #305A72;
+
+}
 /******************* Themes Modal *******************/
 
 
@@ -120,11 +129,12 @@ ol li span {
 ol li span:hover {
   color: black;
 }
-#announcements-modal h2{
+
+#announcements-modal h2 {
   text-align: center;
 }
 
-#announcements-container h3{
+#announcements-container h3 {
   text-align: center;
 }
 
@@ -238,15 +248,16 @@ ul li:hover {
   cursor: pointer;
   padding: 5px;
   width: 50px;
-  height:25px;
+  height: 25px;
   border: none;
   text-align: left;
   outline: none;
   font-size: 15px;
-  float:right;
+  float: right;
 }
 
-.active-collapse, .collapsible:hover {
+.active-collapse,
+.collapsible:hover {
   background-color: #555;
 }
 
@@ -257,7 +268,7 @@ ul li:hover {
   background-color: #f1f1f1;
 }
 
-#student-collapse{
-  float:right;
-  padding:5px;
+#student-collapse {
+  float: right;
+  padding: 2.5px;
 }

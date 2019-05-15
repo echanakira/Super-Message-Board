@@ -37,14 +37,21 @@
                             <fieldset id='status-update'>
                                 <legend>Status</legend>
                                 <div id="input-container">
-                                    <input type='radio' id='in-office' name="radAnswer" checked> In </input>
-                                    <input type="radio" id='out-office' name="radAnswer"> Out </input> <br />
+                                    <input type='radio' id='in-office' name="radAnswer" checked>In</input>
+                                    <br/>
+                                    <input type="radio" id='out-office' name="radAnswer">Out</input> <br />
                                 </div>
 
                                 <p>How long will you be gone?</p>
                                 <input type="number" id='hours' maxlength="4" size="4"> Hour(s)
                                 <input type="number" id='minutes' maxlength="4" size="4">Minute(s)
                             </fieldset> <br />
+                            <fieldset id='comic-update'>
+                                    <legend>Comic</legend>
+                                    <div id="comic-container">
+                                        <input type="file" name="" id="">
+                                    </div>
+                                </fieldset> <br />
                             <button id='submit-office'> Submit </button>
                             <button onclick="window.location.reload()">Cancel</button>
                         </fieldset>
@@ -57,9 +64,7 @@
             <div class='modal-content' id="queue-modal-content">
                 <span class='close'>&times;</span>
                 <h3>Manage Queue</h3> <br />
-                <h4> Student Message</h4>
-                <div class="message" >
-
+                <div id="message" class="hide" >
                 </div>
                 <div id='queue-container'>
                     <ol id='queue'>
@@ -189,6 +194,7 @@
 
 </body>
 
+<script src="scripts/initial.js"></script>
 <script src="scripts/themes.js"></script>
 <script src="scripts/announcements.js"></script>
 <script src="scripts/queue.js"></script>

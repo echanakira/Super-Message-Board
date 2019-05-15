@@ -290,9 +290,9 @@ function setupThemeProfessor() {
 
     let buttons = document.querySelectorAll('#button');
     let weekday = document.querySelector('.weekdays');
-    let marquee = document.querySelector('marquee');
-    let marqueeFont = document.querySelector('marquee font');
-    console.log(marqueeFont);
+    // let marquee = document.querySelector('marquee');
+    // let marqueeFont = document.querySelector('marquee font');
+    // console.log(marqueeFont);
 
     /* Consistent Across All Pages */
     nav.style.backgroundColor = themes[0];
@@ -301,8 +301,8 @@ function setupThemeProfessor() {
     body.style.color = themes[2];
 
     /* Page Specific */
-    marquee.style.backgroundColor = themes[1];
-    marqueeFont.style.color = themes[2];
+    // marquee.style.backgroundColor = themes[1];
+    // marqueeFont.style.color = themes[2];
 
     if(themes[6] == 'dark'){
 
@@ -333,11 +333,10 @@ function setupThemeProfessor() {
 
 function setupProfessorName(){
   let name = document.querySelector("#name");
-  name.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s Office`;
+  name.innerHTML = `${localStorage.getItem('professorName')}'s Office`;
 }
 
 
-<<<<<<< HEAD
 function departmentSwitcher(){
   document.getElementById("img1").src = '../settings/assets/Dept1.png'
   document.getElementById("img2").src = '../settings/assets/Dept2.png'
@@ -351,8 +350,6 @@ function professorSwitcher(){
 }
 
 
-=======
->>>>>>> ca2dab44cd39cc1b0af402a836c855adadcbeeac
 
     
   

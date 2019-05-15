@@ -1,7 +1,9 @@
 function setupQueue() {
-    let queueElement = document.querySelector('#queue');
-    let currentQueue = JSON.parse(localStorage.getItem('currentQueue'));
-    console.log(currentQueue)
+    let queueStatus = localStorage.getItem('queueStatus');
+
+    if(queueStatus == 'Enabled'){
+        toggleQueue();
+    }
 }
 
 function toggleQueue() {
@@ -9,11 +11,15 @@ function toggleQueue() {
     let container = document.querySelector("#queue-modal-content")
 
     let notify = document.createElement("button");
+    let br = document.createElement("br");
+    br.id ="br";
+
     notify.id = "notify-queue";
 
     if (toggle.innerHTML === 'Enable') {
         toggle.remove();
         container.appendChild(notify);
+        container.appendChild(br);
         container.appendChild(toggle);
         localStorage.setItem('queueStatus', 'Enabled')
         toggle.innerHTML = 'Disable'
@@ -27,46 +33,22 @@ function toggleQueue() {
             if (queue.length > 0) {
                 this.innerHTML = 'Notify ' + queue[0]['name']
             } else {
-                this.innerHTML = '------'
             }
             alert(`${name} has been notified.`)
         });
     } else {
         let notify = document.querySelector('#notify-queue')
+        let br = document.querySelector('#br')
+
         if (confirm('Are you sure you want to disable queue?')) {
             toggle.innerHTML = 'Enable';
             notify.remove();
+            br.remove();
             disableQueue();
             localStorage.setItem('queueStatus', 'Disabled')
             notify.addEventListener('click', function () {});
         }
     }
-}
-
-/*
-function nextInQueue() {
-
-        getCurrentQueue();
-    if(queue){
-    var nextStudent = queue[0];
-    return nextStudent;
-    }else{
-    //null error 
-    alert(" no more students in queue");
-    return null;
-    }
-        
-        
-<<<<<<< HEAD
-    }*/
-
-
-
-function OLDnextInQueue() {
-    getCurrentQueue();
-    let nextStudent = queue.shift();
-    localStorage.setItem('currentQueue', JSON.stringify(queue))
-    return nextStudent;
 }
 
 function nextInQueue() {
@@ -101,11 +83,13 @@ function loadQueue() {
 
     for (let index = 0; index < queue.length; index++) {
         let student = queue[index];
-
         let li = document.createElement('li');
+        let description = document.createElement("div");
         let closeBtn = document.createElement('span')
-        let collapsible = document.createElement("button");
-        collapsible.id = "student-collapse"
+
+        li.classList.add("closed")
+        description.className = "description hide";
+        li.appendChild(description);
 
         closeBtn.classList.add('remove')
         closeBtn.innerHTML = '&#x2716;';
@@ -123,35 +107,23 @@ function loadQueue() {
             this.parentElement.remove();
         });
 
-        collapsible.addEventListener('click', function(){
-            let collapse = this;
-            let message = document.querySelector(".message");
-            console.log(queue[index])
-
-            if(message.style.display == 'block'){
-                console.log("In If");
-                message.innerHTML = queue[index].msg;
-                console.log(queue[index].msg)
-                collapse.innerHTML = "Show";
-                collapse.style.background = "#305A72";
-                message.style.content  = 'none';
-                message.innerHTML = "";
-            }else{
-                console.log('In else');
-                console.log(message.style.display)
-                message.innerHTML = queue[index].msg;
-                collapse.innerHTML = "Hide";
-                collapse.style.background = 'DarkRed';
-                message.style.display  = 'block';
+        li.addEventListener('click', function(){
+            if(this.classList.contains("closed")){//If description closed
+                description.innerHTML = `<h4> ${queue[index].cls} </h4> \n <b> Reason: </b> ${queue[index].msg}`;
+                this.classList.remove('closed')
+                this.classList.add("open")
+            }else{//Otherwise if description is open
+                description.innerHTML = "";
+                this.classList.remove('open')
+                this.classList.add("closed")
             }
 
         })
 
-        collapsible.innerHTML = "Show";
         li.innerHTML = student['name'];
 
         li.appendChild(closeBtn)
-        li.appendChild(collapsible);
+        li.appendChild(description);
         queueElement.appendChild(li);
     }
     return queue;

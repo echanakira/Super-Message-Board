@@ -14,7 +14,7 @@ function loadAvailableTime() {
                 }
             }
         }
-    }
+    }else{}
     removeTime();
 }
 
