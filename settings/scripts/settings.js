@@ -1,5 +1,3 @@
-//Adding the student object and making the changes to access the object and store it as a Json file
-//student object takes name, id num for the queue(now serving number)
 function Student(name, position, email, phonenum, cls, msg) {
     this.name = name;
     this.posistion = position;
@@ -8,12 +6,6 @@ function Student(name, position, email, phonenum, cls, msg) {
     this.cls = cls;
     this.msg = msg;
 }
-
-//using shift to dequeue and push to enqueue
-var id = 0;
-let queue = [];
-let currentStudent;
-let numInQueue = 0;
 
 window.onload = function(){
     // resetStorage();
