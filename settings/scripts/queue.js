@@ -1,15 +1,26 @@
 function setupQueue() {
-    let queueElement = document.querySelector('#queue');
-    let currentQueue = JSON.parse(localStorage.getItem('currentQueue'));
-    console.log(currentQueue)
-}
+    let queueStatus = localStorage.getItem('queueStatus');
 
+    if(queueStatus == 'Enabled'){
+        toggleQueue();
+    }
+}
 
 function toggleQueue() {
     let toggle = document.querySelector('#queue-toggle');
-    let notify = document.querySelector('#notify-queue')
+    let container = document.querySelector("#queue-modal-content")
+
+    let notify = document.createElement("button");
+    let br = document.createElement("br");
+    br.id ="br";
+
+    notify.id = "notify-queue";
 
     if (toggle.innerHTML === 'Enable') {
+        toggle.remove();
+        container.appendChild(notify);
+        container.appendChild(br);
+        container.appendChild(toggle);
         localStorage.setItem('queueStatus', 'Enabled')
         toggle.innerHTML = 'Disable'
         let queue = loadQueue();
@@ -19,17 +30,20 @@ function toggleQueue() {
             let name = queue[0]['name'];
             nextInQueue();
             queue = loadQueue();
-            if(queue.length > 0){
+            if (queue.length > 0) {
                 this.innerHTML = 'Notify ' + queue[0]['name']
-            }else{
-                this.innerHTML = '------'
+            } else {
             }
             alert(`${name} has been notified.`)
         });
     } else {
+        let notify = document.querySelector('#notify-queue')
+        let br = document.querySelector('#br')
+
         if (confirm('Are you sure you want to disable queue?')) {
             toggle.innerHTML = 'Enable';
-            notify.innerHTML = '------'
+            notify.remove();
+            br.remove();
             disableQueue();
             localStorage.setItem('queueStatus', 'Disabled')
             notify.addEventListener('click', function () {});
@@ -37,37 +51,16 @@ function toggleQueue() {
     }
 }
 
-
-
-/*
 function nextInQueue() {
-
-        getCurrentQueue();
-    if(queue){
-    var nextStudent = queue[0];
-    return nextStudent;
-    }else{
-    //null error 
-    alert(" no more students in queue");
-    return null;
+    getCurrentQueue();
+    if (queue) {
+        var nextStudent = queue[0];
+        return nextStudent;
+    } else {
+        //null error 
+        alert(" no more students in queue");
+        return null;
     }
-        
-        
-<<<<<<< HEAD
-    }*/
-
-
-
-function OLDnextInQueue() {
-    getCurrentQueue();
-    let nextStudent = queue.shift();
-    localStorage.setItem('currentQueue', JSON.stringify(queue))
-    return nextStudent;
-}
-function nextInQueue() {
-    getCurrentQueue();
-    var nextStudent = queue[0];
-    return nextStudent;
 }
 
 
@@ -84,12 +77,19 @@ function loadQueue() {
     let queueElement = document.querySelector('ol');
     queueElement.innerHTML = "";
     let queue = getCurrentQueue();
+    if (queue == null) {
+        return;
+    }
 
     for (let index = 0; index < queue.length; index++) {
         let student = queue[index];
-
         let li = document.createElement('li');
+        let description = document.createElement("div");
         let closeBtn = document.createElement('span')
+
+        li.classList.add("closed")
+        description.className = "description hide";
+        li.appendChild(description);
 
         closeBtn.classList.add('remove')
         closeBtn.innerHTML = '&#x2716;';
@@ -99,22 +99,37 @@ function loadQueue() {
             console.log(index)
             queue = removeFromLocalStorage(index, queue);
             let notify = document.querySelector('#notify-queue');
-            if(queue.length > 0){
+            if (queue.length > 0) {
                 notify.innerHTML = 'Notify ' + queue[0]['name']
-            }else{
+            } else {
                 notify.innerHTML = '------'
             }
             this.parentElement.remove();
         });
+
+        li.addEventListener('click', function(){
+            if(this.classList.contains("closed")){//If description closed
+                description.innerHTML = `<h4> ${queue[index].cls} </h4> \n <b> Reason: </b> ${queue[index].msg}`;
+                this.classList.remove('closed')
+                this.classList.add("open")
+            }else{//Otherwise if description is open
+                description.innerHTML = "";
+                this.classList.remove('open')
+                this.classList.add("closed")
+            }
+
+        })
+
         li.innerHTML = student['name'];
 
         li.appendChild(closeBtn)
+        li.appendChild(description);
         queueElement.appendChild(li);
     }
     return queue;
 }
 
-/* Function that finds a student in the queue
+/* Function that finds a student in the queue 
  * Student name has a special character which needs to be removed
  */
 function findStudent(studentName, queue) {

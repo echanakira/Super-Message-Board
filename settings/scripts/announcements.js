@@ -18,7 +18,6 @@
 // localStorage.setItem('announcements', JSON.stringify(announcements))
 
 function loadAnnouncements() {
-
     let announcemnets = JSON.parse(localStorage.getItem('announcements'))
     if (announcemnets == null){
         announcemnets = [];
@@ -28,6 +27,7 @@ function loadAnnouncements() {
 
 function setupAnnouncements() {
     let currentAnnouncements = loadAnnouncements();
+    if(currentAnnouncements== null){return}
     let titles = document.querySelector("#annoucement-titles");
     let submitBtn = document.querySelector('#announcement-submit');
   //  if(currentAnnouncements)

@@ -15,7 +15,7 @@ function loadAvailableTime() {
             }
         }
     } else {
-        localStorage.set("availability", JSON.stringify({
+        localStorage.setItem("availability", JSON.stringify({
             "Monday": [],
             "Tuesday": [],
             "Wednesday": [],

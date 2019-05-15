@@ -16,7 +16,7 @@ let currentStudent;
 let numInQueue = 0;
 
 window.onload = function(){
-    //resetStorage();
+    // resetStorage();
     setup();
     }
 
@@ -24,30 +24,13 @@ function resetStorage() {
     resetStorageupdated();
 }
 
-function resetStorageupdated() {
-    var student = new Student("Elijah", id, "bob@bill.com", "333-333-3333", "cmsc434", "need help on project");
-    id++;
-    queue.push(student);
-     student = new Student("Elijah2", id, "bob@bill.com", "333-333-3333", "cmsc434", "need help on project");
-    id++;
-    queue.push(student);
-    var student = new Student("Elijah3", id, "bob@bill.com", "333-333-3333", "cmsc434", "need help on project");
-    id++;
-    queue.push(student);
-    //create a new student and then increase the id for the next person
-    student = new Student("Jacob", id, "bob@bill.com", "333-333-3333", "cmsc434", "need help on project");
-    id++;
-    queue.push(student);
-    localStorage.setItem('currentQueue', JSON.stringify(queue))
-    localStorage.setItem('officeNumber', '1208');
-    // localStorage.setItem('officeStatus', JSON.stringify({status:true, time:null}))
-}
-
 /******************** HTML STEUP AND MANIPULATION ********************/
 function setup() {
     // console.log('Setting up')
 
+    setupLocalStorage();
     setupProfessorInfo();
+    setupOfficeModal();
     modalSetup();
     setupQueue();
     setupEvents();
@@ -127,6 +110,18 @@ function submitOfficeInfo() {
     return true;
 }
 
+function setupOfficeModal(){
+    let name = document.querySelector("#professor-name");
+    let office = document.querySelector("#office-number");
+    let comic = document.querySelector("#comic-update");
+
+    let storedName = localStorage.getItem("professorName");
+    name.value = storedName.replace(/"/g,"");
+    
+    let storedOffice = localStorage.getItem("officeNumber");
+    office.value = storedOffice.replace(/"/g,"")
+}
+
 //Converts time from XX:XX:XX to XX:XX (AM/PM)
 function toStandardTime(time) {
 
@@ -192,16 +187,14 @@ function modalSetup() {
 function setupProfessorInfo() {
     let title = document.querySelector('#page-title');
 
-    title.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s
-    Hub`;
+    title.innerHTML = `${localStorage.getItem('professorName')}'s Hub`;
     let office = document.querySelector('#nav-office-number');
     console.log(office);
 
     office.innerHTML = JSON.parse(localStorage.getItem('officeNumber'));
 
     let navNam = document.querySelector('#prof-name');
-    navNam.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s Page`;
-
+    navNam.innerHTML = `${localStorage.getItem('professorName')}'s Page`;
 
 }
 
@@ -271,7 +264,7 @@ function setupThemeSettings() {
     let nav = document.querySelector('.navbar');
     let body = document.querySelector('body');
     let themes = JSON.parse(localStorage.getItem('themes'));
-
+    if(themes==null){return}
     let li = document.querySelectorAll('ul li');
     let modal = document.querySelectorAll('.modal');
     let modalContent = document.querySelectorAll('.modal-content')

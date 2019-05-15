@@ -280,6 +280,7 @@ function queueDay(){
   let officeHours = JSON.parse(localStorage.getItem("availability"));
   var d = new Date();
   var n = d.getDay()
+  if(officeHours == null) return;
   if (n == 0){
     return "No Office Hours Today"
   } else if (n == 1){
@@ -307,9 +308,9 @@ function setupThemeProfessor() {
 
     let buttons = document.querySelectorAll('#button');
     let weekday = document.querySelector('.weekdays');
-    let marquee = document.querySelector('marquee');
-    let marqueeFont = document.querySelector('marquee font');
-    console.log(marqueeFont);
+    // let marquee = document.querySelector('marquee');
+    // let marqueeFont = document.querySelector('marquee font');
+    // console.log(marqueeFont);
 
     /* Consistent Across All Pages */
     //nav.style.backgroundColor = themes[0];
@@ -350,9 +351,8 @@ function setupThemeProfessor() {
 
 function setupProfessorName(){
   let name = document.querySelector("#name");
-  name.innerHTML = `${JSON.parse(localStorage.getItem('professorName'))}'s Office`;
+  name.innerHTML = `${localStorage.getItem('professorName')}'s Office`;
 }
-
 
 
 function departmentSwitcher(){
